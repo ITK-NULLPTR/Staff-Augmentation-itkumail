@@ -26,7 +26,7 @@ const Home = () => {
       <HomeFiveBanner2 />
             {/* <HomeFiveBanner2 /> */}
 
-      <Agency2 />
+      {/* <Agency2 /> */}
       <Agency3 />
 
       {/* <HomeFiveBanner /> */}
