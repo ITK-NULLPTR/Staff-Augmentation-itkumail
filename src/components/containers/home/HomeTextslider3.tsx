@@ -45,9 +45,7 @@ const HomeTextslider3 = () => {
         <h2 className="title">ENTERPRISE</h2>
       </div>
 
-      {/* Decorative Images */}
-      <Image src={star} alt="Star Decoration" className="star" priority />
-      <Image src={dotlarge} alt="Dot Decoration" className="dot-large" priority />
+     
 
       <style jsx>{`
         .agency-section {
@@ -74,27 +72,8 @@ const HomeTextslider3 = () => {
           text-align: center;
           font-weight: 900;
         }
-
-        /* Decorative images fix */
-        .star,
-        .dot-large {
-          position: absolute;
-          z-index: 2;
-        }
-
-        .star {
-          top: 10%;
-          left: 5%;
-          width: 60px;
-          height: auto;
-        }
-
-        .dot-large {
-          bottom: 10%;
-          right: 5%;
-          width: 80px;
-          height: auto;
-        }
+ 
+ 
       `}</style>
     </section>
   );

@@ -51,7 +51,7 @@ const Agency = () => {
           opacity: 1,
           xPercent: -50,
           yPercent: -200,
-          top: "54%",
+          top: "56%",
           scale: 1.6,
           left: "60%",
           rotateY: 0,
@@ -60,7 +60,7 @@ const Agency = () => {
         },
         {
           opacity: 1,
-          top: "93%",
+          top: "98%",
           left: "82%",
           xPercent: -100,
           yPercent: -100,
@@ -81,10 +81,10 @@ const Agency = () => {
 
     // independent circles animation
     const circlePositions = [
-      { start: { top: "2%", left: "45%" }, end: { top: "57%", left: "79%" } },
-      { start: { top: "6%", left: "65%" }, end: { top: "69%", left: "50%" } },
-      { start: { top: "1%", left: "75%" }, end: { top: "59%", left: "50%" } },
-      { start: { top: "11%", left: "53%" }, end: { top: "64%", left: "65%" } },
+      { start: { top: "8%", left: "45%" }, end: { top: "67%", left: "79%" } },
+      { start: { top: "9%", left: "65%" }, end: { top: "79%", left: "50%" } },
+      { start: { top: "1%", left: "75%" }, end: { top: "69%", left: "53%" } },
+      { start: { top: "11%", left: "53%" }, end: { top: "69%", left: "65%" } },
     ];
 
     circlesRef.current.forEach((circle, i) => {
@@ -186,6 +186,7 @@ const Agency = () => {
       <style jsx>{`
         .agency-container {
           position: relative;
+          padding:100px;
           width: 100%;
           overflow: hidden;
         }
@@ -230,11 +231,11 @@ const Agency = () => {
 
         .text-block {
           width: 50%;
-          margin-left: 8%;
+          margin-left: 0%;
         }
 
         .title {
-          font-size: clamp(2rem, 6vw, 6rem);
+          font-size: clamp(2rem, 6vw, 5rem);
           font-weight: 900;
           margin-bottom: 1rem;
           line-height: 1.2;
