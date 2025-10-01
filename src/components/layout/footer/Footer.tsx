@@ -9,8 +9,8 @@ const Footer = () => {
     <footer
      
     >
-      <div className="container f1">
-        <div className="row">
+      <div className="container f1 ">
+        {/* <div className="row">
           <div className="col-12">
             <div className="footer-four__content">
               <div className="intro text-center">
@@ -23,7 +23,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-       
+        */}
       </div>
       <div className="container">
         <div className="row gaper">

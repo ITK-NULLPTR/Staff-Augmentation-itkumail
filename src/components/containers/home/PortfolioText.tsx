@@ -14,27 +14,23 @@ gsap.registerPlugin(ScrollTrigger);
 
 const teamMembers = [
   {
-    designation: "App Designer",
-    firstName: "Adaam",
-    lastName: "Smith",
+     firstName: "You feel ",
+    lastName: "the pressure",
     image: team1,
   },
   {
-    designation: "UI/UX Designer",
-    firstName: "Henry",
-    lastName: "Jhonson",
+     firstName: "The deadlines",
+    lastName: "tighten",
     image: team2,
   },
   {
-    designation: "Web Developer",
-    firstName: "Carolina",
-    lastName: "Cab",
+     firstName: "The ideas",
+    lastName: "are there",
     image: team3,
   },
   {
-    designation: "Digital Marketer",
-    firstName: "Sophie",
-    lastName: "Ferrer",
+     firstName: "But the hands to build them are stretched thin",
+    lastName: "",
     image: team4,
   },
 ];
@@ -82,47 +78,28 @@ const TeamSection = () => {
       }}
     >
       <div className="container">
-        <div className="row align-items-end g-5 section-title-spacing">
-          <div className="col-lg-6">
-            <div className="section__title-wrapper">
-              <div className="section__subtitle">
-                <p className="section__subtitle-text">Our Core Team Members</p>
-              </div>
-              <h2 className="section__title-main xlarge uppercase title-anim">
-                Awesome <br /> Team
-              </h2>
-            </div>
-          </div>
-          <div className="col-lg-6">
-            <div className="team__meta-description mb-10">
-              <p className="xlarge">
-                Lift is a full-service, award-winning digital agency with
-                expertise in brand & digital strategy, design, and user
-                experience.
-              </p>
-            </div>
-          </div>
-        </div>
+     
 
         <div className="team__wrapper anim-skewinup">
           {teamMembers.map((member, index) => (
             <div className="team__member" key={index}>
-              <span className="member-designation">{member.designation}</span>
-              <a href="/team-details">
+               <a href="/team-details">
                 <div className="member-name">
                   <span className="first-name">{member.firstName}</span>
-                  <div className="member-image">
-                    <Image src={member.image} alt="Team" />
-                  </div>
-                  <span className="last-name">{member.lastName}</span>
+
+                  {index < 3 ? (
+                    <div className="member-image">
+                      <Image src={member.image} alt="Team" />
+                    </div>
+                  ) : (
+                    <h3 className="fourth-member-heading">{member.lastName}</h3>
+                  )}
+
+                  {index < 3 && <span className="last-name">{member.lastName}</span>}
                 </div>
               </a>
-              <div className="member-details-btn btn_wrapper">
-                <a className="c-button btn-moving" href="/team-details">
-                  <span className="c-button__border"></span>
-                  <span className="c-button__text">Details</span>
-                </a>
-              </div>
+
+         
             </div>
           ))}
         </div>

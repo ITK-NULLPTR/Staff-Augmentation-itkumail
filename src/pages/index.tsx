@@ -1,46 +1,40 @@
 import React from "react";
 import Layout from "@/components/layout/Layout";
 import HomeOneBanner from "@/components/layout/banner/HomeOneBanner";
-import Agency from "@/components/containers/home/Agency";
-import Agency2 from "@/components/containers/home/Agency2";
 import Agency3 from "@/components/containers/home/Agency3";
 
 import PortfolioText from "@/components/containers/home/PortfolioText";
-import HomeFiveBanner from "@/components/layout/banner/HomeFiveBanner";
+import HomeFiveBanner from "@/components/layout/banner/who'sthere";
 import HomeFiveBanner2 from "@/components/layout/banner/HomeFiveBanner2";
-// import HomeFiveBanner3 from "@/components/layout/banner/HomeFiveBanner3";
 
-// import HomeTestimonial from "@/components/containers/home/HomeTestimonial";
-import HomeSponsor from "@/components/containers/home/HomeSponsor";
+import HomeSponsor from "@/components/containers/home/HomeTextslider";
 import HomeTestimonial from "@/components/containers/home/HomeTestimonial";
 import WorkSteps from "@/components/containers/home/WorkSteps";
-
-// import HomeTestimonial from "@/components/containers/home/HomeTestimonial";
+import HomeTextslider2 from "@/components/containers/home/HomeTextslider2";
+import HomeTextslider from "@/components/containers/home/HomeTextslider";
+import HomeTextslider3 from "@/components/containers/home/HomeTextslider3";
+ import Has from "@/components/containers/home/Has";
+import An from "@/components/containers/home/An";
+import Hand from "@/components/containers/home/Hand";
+import Unseen from "@/components/containers/home/Unseen";
+import WhoIsThere from "@/components/layout/banner/who'sthere";
 
 const Home = () => {
   return (
     <Layout header={1} footer={1} video={true}>
       <HomeOneBanner />
-      <Agency />
-      <HomeFiveBanner />
-      <HomeFiveBanner2 />
-            {/* <HomeFiveBanner2 /> */}
-
-      {/* <Agency2 /> */}
-      <Agency3 />
-
-      {/* <HomeFiveBanner /> */}
-
- 
-      <HomeTestimonial />
-      <PortfolioText />
+      <HomeTextslider />
+      <HomeTextslider2 />
+      <HomeTextslider3 />
+      {/* <Has /> */}
+      <An />
+      {/* <Unseen /> */}
+      {/* <Hand /> */}
       <WorkSteps />
-      <HomeSponsor />
-      {/* <HomeOffer /> */}
-      {/* <HomeTestimonial /> */}
-      {/* <HomeBlog /> */}
       {/* <HomeSponsor /> */}
-      {/* <NextPage /> */}
+      {/* <HomeFiveBanner2 /> */}
+      {/* <PortfolioText /> */}
+      <WhoIsThere />
     </Layout>
   );
 };

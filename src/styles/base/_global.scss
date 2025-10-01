@@ -613,7 +613,7 @@ h2.section__title-main.xlarge.uppercase.title-anim{
     .last-name {
       font-size: 100px;
       font-weight: 600;
-      
+      line-height: 99px;
       color: #999;
       transition: color 0.3s ease;
     }
@@ -699,27 +699,20 @@ a.logo {
     width: 269px;
     margin-bottom: 13px;
 }
-section.section.testimonial.pt-50.position-relative {
-    padding: 142px 0px 163px 0px;
+ 
+ .testimonial .testimonial__text-slider-single h2 a {
+    gap: 30px;
+    font-size: 300px;
+    font-weight: 900;
+    color: #000000;
+    // -webkit-text-stroke: 6px rgb(0, 0, 0);
+  -webkit-text-fill-color: #000000;  
+} 
+ .agency-container.jsx-acc82a86cc0983a2 {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 71px;
+    padding-top: 55px;
+    margin-top: 55px;
 }
-section.section.testimonial.pt-50.position-relative {
-    padding: 142px 0px 163px 0px;
-}
-.video-frame {
-  width: 170px;
-  height: 100px;
-  border-radius: 50%;
-  // background: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 120px;
-}
-// button.video-frame {
-//     position: relative;
-//     // top: -22% !important;
-//     // bottom: 134px;
-//     right: 32% !important;
-// }
-

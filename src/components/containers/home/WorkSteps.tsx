@@ -1,150 +1,254 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
-import YoutubeEmbed from "@/components/youtube/YoutubeEmbed";
-import videoframe from "public/images/video-frame.png";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
+// apna logo import karo
+import logo from "public/images/23.webp"; 
+import circle1 from "public/images/circle1.png";
+import circle2 from "public/images/circle2.png";
+import circle3 from "public/images/circle3.png";
+import circle4 from "public/images/circle4.png";
+
 gsap.registerPlugin(ScrollTrigger);
 
-const WorkSteps = () => {
-  const [hover, setHover] = useState(0);
-  const [videoActive, setVideoActive] = useState(false);
-  const stepsRef = useRef<HTMLDivElement[]>([]);
+const Agency = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const logoRef = useRef<HTMLDivElement>(null);
+  const circlesRef = useRef<HTMLDivElement[]>([]);
 
-useEffect(() => {
-  const steps = stepsRef.current;
-  if (!containerRef.current || steps.length === 0) return;
+  useEffect(() => {
+    const sections = gsap.utils.toArray<HTMLElement>(".agency-section");
+    if (!sections.length) return;
 
-  // Hide all steps initially
-  gsap.set(steps, { opacity: 0, visibility: "hidden" });
+    // text sections animation
+    sections.forEach((section) => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          end: "top 20%",
+          scrub: true,
+        },
+      });
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: containerRef.current,
-      start: "top top",
-      end: "+=400%", // Adjust scroll length for smoother animation
-      scrub: true,
-      pin: true,
-    },
-  });
+      tl.fromTo(
+        section,
+        { opacity: 0, y: 150, scale: 0.95 },
+        { opacity: 1, y: 0, scale: 1, duration: 1.5, ease: "power3.out" }
+      );
+    });
 
-  steps.forEach((step, i) => {
-    tl.set(step, { visibility: "visible" });
-    tl.to(step, { opacity: 1, duration: 0.3 }, `+=0.6`);
-  });
+    // logo animation
+    const container = containerRef.current;
+    const logoEl = logoRef.current;
+    if (container && logoEl) {
+      gsap.fromTo(
+        logoEl,
+        {
+          opacity: 1,
+          xPercent: -50,
+          yPercent: -200,
+          top: "54%",
+          scale: 1.6,
+          left: "60%",
+          rotateY: 0,
+          rotateX: 10,
+          rotateZ: -10,
+        },
+        {
+          opacity: 1,
+          top: "93%",
+          left: "82%",
+          xPercent: -100,
+          yPercent: -100,
+          scale: 2.5,
+          rotateY: 21,
+          rotateX: 21,
+          rotateZ: -19,
+          ease: "slow(0.7, 0.7, false)",
+          scrollTrigger: {
+            trigger: container,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: true,
+          },
+        }
+      );
+    }
 
-  return () => {
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-  };
-}, []);
+    // independent circles animation
+    const circlePositions = [
+      { start: { top: "2%", left: "45%" }, end: { top: "57%", left: "79%" } },
+      { start: { top: "6%", left: "65%" }, end: { top: "69%", left: "50%" } },
+      { start: { top: "1%", left: "75%" }, end: { top: "59%", left: "50%" } },
+      { start: { top: "11%", left: "53%" }, end: { top: "64%", left: "65%" } },
+    ];
 
+    circlesRef.current.forEach((circle, i) => {
+      const pos = circlePositions[i % circlePositions.length];
+      gsap.fromTo(
+        circle,
+        {
+          opacity: 0.6,
+          top: pos.start.top,
+          left: pos.start.left,
+          scale: 0.8,
+        },
+        {
+          opacity: 1,
+          top: pos.end.top,
+          left: pos.end.left,
+          scale: 0.9,
+          ease: "slow(0.7, 0.7, false)",
+          scrollTrigger: {
+            trigger: container,
+            start: "top top",
+            end: "bottom bottom",
+            scrub: true,
+          },
+        }
+      );
+    });
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
+  // different circle sizes
+  const circleSizes = [120, 180, 140, 200];
+  const circleImages = [circle1, circle2, circle3, circle4];
 
   return (
-    <>
-      <section
-        ref={containerRef}
-        className="section work-steps fade-wrapper"
-        style={{
-          position: "relative",
-          background: "radial-gradient(circle at top left, #0F0F0F, #1C1C1C)",
-        }}
-      >
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <div className="section__header--secondary">
-                <div className="row gaper align-items-center">
-                  <div className="col-12 col-lg-5 col-xxl-5">
-                    <div className="section__header text-center text-lg-start mb-0">
-                      <span className="sub-title">
-                        working steps <i className="fa-solid fa-arrow-right"></i>
-                      </span>
-                      <h2 className="title title-anim">Our Work Process</h2>
-                    </div>
-                  </div>
-                  <div className="col-12 col-lg-7 col-xxl-5 offset-xxl-2">
-                    <div className="text-center text-lg-start">
-                      <p>
-                        Bring to the table win-win survival strategies to ensure
-                        proactive domination. At the end of the day, going forward,
-                        a new normal that has evolved from generation...
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <div className="agency-container" ref={containerRef}>
+      {/* Logo inside background */}
+      <div className="logo-wrapper" ref={logoRef}>
+        <Image src={logo} alt="Logo" width={500} priority />
+      </div>
 
-          {/* Steps */}
-          <div className="row">
-            {[0, 1, 2, 3].map((i) => (
-              <div className="col-12 col-sm-6 col-xl-3" key={i}>
-                <div
-                  ref={(el) => el && (stepsRef.current[i] = el)}
-                  className={`work-steps__single fade-top ${
-                    i === 1
-                      ? "work-two"
-                      : i === 2
-                      ? "work-three"
-                      : i === 3
-                      ? "work-four"
-                      : ""
-                  } ${hover === i ? "work-steps__single-active" : ""}`}
-                  onMouseEnter={() => setHover(i)}
-                >
-                  <span>
-                    {(i + 1) * 25}
-                    <br />%
-                  </span>
-                  <h5>
-                    {[
-                      "Discover & Strategy",
-                      "Wireframes & User-flows",
-                      "Hi-Fidelity design",
-                      "Development Phase",
-                    ][i]}
-                  </h5>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Video Button */}
-        <button
-          className="video-frame video-btn d-none d-md-flex"
-          onClick={() => setVideoActive(true)}
+      {/* Circles with Images */}
+      {circleImages.map((img, i) => (
+        <div
+          key={i}
+          className="circle-box orb-footer"
+          style={{
+            width: `${circleSizes[i]}px`,
+            height: `${circleSizes[i]}px`,
+          }}
+          ref={(el) => {
+            if (el) circlesRef.current[i] = el;
+          }}
         >
-          <Image src={videoframe} alt="Video Frame" />
-          <i className="fa-sharp fa-solid fa-play"></i>
-        </button>
+          <Image
+            src={img}
+            alt={`circle-${i}`}
+            fill
+            style={{ objectFit: "cover", borderRadius: "50%" }}
+          />
+        </div>
+      ))}
+
+      {/* Sections */}
+      <section className="agency-section">
+        <div className="text-block">
+          <h2 className="title">You feel the<br></br> pressure</h2>
+          <p>
+            In both cases, you only pay the balance <br></br>when we find the ideal
+            talent.
+          </p>
+        </div>
       </section>
 
-      {/* Video Modal */}
-      <div
-        className={`video-backdrop ${videoActive ? "video-zoom-in" : ""}`}
-        onClick={() => setVideoActive(false)}
-      >
-        <div className="video-inner">
-          <div className="video-container" onClick={(e) => e.stopPropagation()}>
-            {videoActive && <YoutubeEmbed embedId="fSv6UgCkuTU" />}
-            <button
-              aria-label="close video popup"
-              className="close-video-popup"
-              onClick={() => setVideoActive(false)}
-            >
-              <i className="fa-solid fa-xmark"></i>
-            </button>
-          </div>
+      <section className="agency-section">
+        <div className="text-block">
+          <h2 className="title">The deadlines<br></br> tighten.</h2>
+          <p>Simple, flexible, and aligned with your goals.</p>
         </div>
-      </div>
-    </>
+      </section>
+
+      <section className="agency-section">
+        <div className="text-block">
+          <h2 className="title">The ideas are<br></br> there,</h2>
+          <p>But the hands to build them are stretched thin.</p>
+        </div>
+      </section>
+
+      <section className="agency-section">
+        <div className="text-block">
+          <h2 className="title">But resources<br></br> feel limited</h2>
+          <p>Simple, flexible, and aligned with your goals.</p>
+        </div>
+      </section>
+
+      <style jsx>{`
+        .agency-container {
+          position: relative;
+          width: 100%;
+          overflow: hidden;
+        }
+
+        .logo-wrapper {
+          position: absolute;
+          z-index: 0;
+          will-change: transform;
+          transform-style: preserve-3d;
+          pointer-events: none;
+        }
+
+        .circle-box {
+          position: absolute;
+          z-index: 0;
+          border-radius: 50%;
+          overflow: hidden; /* image ke liye */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          pointer-events: none;
+          will-change: transform;
+        }
+
+        /* Orb effect */
+        .orb-footer {
+          box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2),
+            0 5px 15px rgba(0, 0, 0, 0.3);
+          transform-style: preserve-3d;
+          position: absolute;
+        }
+
+        .agency-section {
+          height: 45vh;
+          width: 100%;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          z-index: 1;
+        }
+
+        .text-block {
+          width: 50%;
+          margin-left: 8%;
+        }
+
+        .title {
+          font-size: clamp(2rem, 6vw, 6rem);
+          font-weight: 900;
+          margin-bottom: 1rem;
+          line-height: 1.2;
+        }
+
+        p {
+          font-size: 1.1rem;
+          line-height: 1.6;
+          color: #ffffff;
+          max-width: 90%;
+        }
+      `}</style>
+    </div>
   );
 };
 
-export default WorkSteps;
+export default Agency;

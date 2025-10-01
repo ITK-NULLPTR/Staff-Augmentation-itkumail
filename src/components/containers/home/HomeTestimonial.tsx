@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/swiper-bundle.css";
-import sthumb from "public/images/testimonial/s-thumb.png";
-import sthumbtwo from "public/images/testimonial/s-thumb-two.png";
-import sthumbthree from "public/images/testimonial/s-thumb-three.png";
 
 const HomeTestimonial = () => {
   const [nextSlideIndex, setNextSlideIndex] = useState<number>(1);
@@ -21,7 +17,7 @@ const HomeTestimonial = () => {
         <Swiper
           slidesPerView="auto"
           spaceBetween={40}
-          speed={5000}
+          speed={1000}
           loop={true}
           centeredSlides={true}
           modules={[Autoplay]}

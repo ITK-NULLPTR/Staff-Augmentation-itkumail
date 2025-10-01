@@ -299,21 +299,13 @@ const Agency = () => {
                   tech conflicts.…
                   </span>
                 </h2>
-                <div className="hover-img">
-                  <Image src={img3} alt="Decorative" width={278} height={338} />
-                </div>
+             
               </div>
             </div>
           </div>
         </div>
       </div>
-      <Image src={star} alt="Star Decoration" className="star" priority />
-      {/* <Image
-        src={dotlarge}
-        alt="Dot Decoration"
-        className="dot-large"
-        priority
-      /> */}
+   
     </section>
   );
 };
