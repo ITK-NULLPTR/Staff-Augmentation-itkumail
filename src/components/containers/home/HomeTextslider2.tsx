@@ -81,7 +81,7 @@ const AgencySlider = () => {
         }
 
         .title {
-          font-size: clamp(15rem, 8vw, 6rem);
+          font-size: clamp(12rem, 8vw, 6rem);
           margin: 0;
           text-align: center;
           font-weight: 900;

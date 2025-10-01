@@ -66,7 +66,7 @@ const HomeTextslider = () => {
         }
 
         .title {
-          font-size: clamp(15rem, 8vw, 5rem);
+          font-size: clamp(12rem, 8vw, 5rem);
           color: #fff;
           margin: 0;
           text-align: center;
