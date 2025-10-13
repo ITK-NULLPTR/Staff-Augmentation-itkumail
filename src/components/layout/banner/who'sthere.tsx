@@ -36,7 +36,7 @@ const Agency = () => {
     };
   }, []);
 
-  const circleStyle: React.CSSProperties = {
+  const circleStyle: React.CSSProperties = { 
     width: "150px",
     height: "150px",
     borderRadius: "50%",
@@ -88,8 +88,7 @@ const Agency = () => {
     >
       <div style={{ display: "flex", flexDirection: "column", gap: "20px", alignItems: "center" }}>
         <div style={{ display: "flex", gap: "15px", justifyContent: "center", alignItems: "center" }}>
-          {/* First row: W, E, (space 50%), A, R, E */}
-          <div
+           <div
             ref={(el) => el && (circlesRef.current[0] = el)}
             style={circleStyle}
             onMouseMove={hoverFollow}
@@ -106,8 +105,7 @@ const Agency = () => {
             E
           </div>
 
-          {/* 50% empty space instead of 3rd circle */}
-          <div style={{ width: "3%", height: "150px" }}></div>
+           <div style={{ width: "3%", height: "150px" }}></div>
 
           <div
             ref={(el) => el && (circlesRef.current[2] = el)}
