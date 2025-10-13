@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 // apna logo import karo
-import logo from "public/images/23.webp"; 
+import logo from "public/images/24.png"; 
 import circle1 from "public/images/circle1.png";
 import circle2 from "public/images/circle2.png";
 import circle3 from "public/images/circle3.png";
@@ -40,8 +40,7 @@ const Agency = () => {
         { opacity: 1, y: 0, scale: 1, duration: 1.5, ease: "power3.out" }
       );
     });
-
-    // logo animation
+     // logo animation
     const container = containerRef.current;
     const logoEl = logoRef.current;
     if (container && logoEl) {
@@ -51,9 +50,9 @@ const Agency = () => {
           opacity: 1,
           xPercent: -50,
           yPercent: -200,
-          top: "56%",
-          scale: 1.6,
-          left: "60%",
+          top: "47%",
+          scale: 2.3,
+          left: "55%",
           rotateY: 0,
           rotateX: 10,
           rotateZ: -10,
@@ -64,7 +63,7 @@ const Agency = () => {
           left: "82%",
           xPercent: -100,
           yPercent: -100,
-          scale: 2.5,
+          scale: 3.5,
           rotateY: 21,
           rotateX: 21,
           rotateZ: -19,
@@ -81,10 +80,10 @@ const Agency = () => {
 
     // independent circles animation
     const circlePositions = [
-      { start: { top: "8%", left: "45%" }, end: { top: "67%", left: "79%" } },
-      { start: { top: "9%", left: "65%" }, end: { top: "79%", left: "50%" } },
-      { start: { top: "1%", left: "75%" }, end: { top: "69%", left: "53%" } },
-      { start: { top: "11%", left: "53%" }, end: { top: "69%", left: "65%" } },
+      { start: { top: "8%", left: "45%" }, end: { top: "70%", left: "79%" } },
+      { start: { top: "9%", left: "65%" }, end: { top: "82%", left: "50%" } },
+      { start: { top: "1%", left: "75%" }, end: { top: "72%", left: "53%" } },
+      { start: { top: "15%", left: "53%" }, end: { top: "74%", left: "65%" } },
     ];
 
     circlesRef.current.forEach((circle, i) => {

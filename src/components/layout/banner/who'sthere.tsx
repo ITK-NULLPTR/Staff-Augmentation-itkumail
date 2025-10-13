@@ -46,12 +46,12 @@ const Agency = () => {
     alignItems: "center",
     fontSize: "5.7rem",
     fontWeight: 600,
-     color: "#1c1c1c",
+    color: "#1c1c1c",
     cursor: "pointer",
     position: "relative",
   };
 
-   const hoverFollow = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const hoverFollow = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const circle = e.currentTarget;
     const rect = circle.getBoundingClientRect();
     const offsetX = e.clientX - (rect.left + rect.width / 2);
@@ -86,25 +86,57 @@ const Agency = () => {
         padding: "40px 20px",
       }}
     >
-       <div style={{ display: "flex", flexDirection: "column", gap: "-1px", alignItems: "center" }}>
-         <div style={{ display: "flex", gap: "15px", justifyContent: "center" }}>
-          {["W", "H", "O", "'", "S"].map((letter, i) => (
-            <div
-              key={i}
-              ref={(el) => {
-                if (el) circlesRef.current[i] = el;
-              }}
-              style={circleStyle}
-              onMouseMove={hoverFollow}
-              onMouseLeave={hoverOut}
-            >
-              {letter}
-            </div>
-          ))}
+      <div style={{ display: "flex", flexDirection: "column", gap: "20px", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "15px", justifyContent: "center", alignItems: "center" }}>
+          {/* First row: W, E, (space 50%), A, R, E */}
+          <div
+            ref={(el) => el && (circlesRef.current[0] = el)}
+            style={circleStyle}
+            onMouseMove={hoverFollow}
+            onMouseLeave={hoverOut}
+          >
+            W
+          </div>
+          <div
+            ref={(el) => el && (circlesRef.current[1] = el)}
+            style={circleStyle}
+            onMouseMove={hoverFollow}
+            onMouseLeave={hoverOut}
+          >
+            E
+          </div>
+
+          {/* 50% empty space instead of 3rd circle */}
+          <div style={{ width: "3%", height: "150px" }}></div>
+
+          <div
+            ref={(el) => el && (circlesRef.current[2] = el)}
+            style={circleStyle}
+            onMouseMove={hoverFollow}
+            onMouseLeave={hoverOut}
+          >
+            A
+          </div>
+          <div
+            ref={(el) => el && (circlesRef.current[3] = el)}
+            style={circleStyle}
+            onMouseMove={hoverFollow}
+            onMouseLeave={hoverOut}
+          >
+            R
+          </div>
+          <div
+            ref={(el) => el && (circlesRef.current[4] = el)}
+            style={circleStyle}
+            onMouseMove={hoverFollow}
+            onMouseLeave={hoverOut}
+          >
+            E
+          </div>
         </div>
 
-         <div style={{ display: "flex", gap: "15px", justifyContent: "center" }}>
-          {["T ", "H", "E", "R", "E", "?"].map((letter, i) => (
+        <div style={{ display: "flex", gap: "15px", justifyContent: "center" }}>
+          {["H", "E", "R", "E"].map((letter, i) => (
             <div
               key={i + 5}
               ref={(el) => {
