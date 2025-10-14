@@ -80,10 +80,10 @@ const Agency = () => {
 
     // independent circles animation
     const circlePositions = [
-      { start: { top: "8%", left: "45%" }, end: { top: "70%", left: "79%" } },
-      { start: { top: "9%", left: "65%" }, end: { top: "82%", left: "50%" } },
-      { start: { top: "1%", left: "75%" }, end: { top: "72%", left: "53%" } },
-      { start: { top: "15%", left: "53%" }, end: { top: "74%", left: "65%" } },
+      { start: { top: "2%", left: "45%" }, end: { top: "69%", left: "79%" } },
+      { start: { top: "8%", left: "69%" }, end: { top: "80%", left: "50%" } },
+      { start: { top: "-2%", left: "75%" }, end: { top: "68%", left: "53%" } },
+      { start: { top: "13%", left: "53%" }, end: { top: "74%", left: "65%" } },
     ];
 
     circlesRef.current.forEach((circle, i) => {
@@ -91,10 +91,10 @@ const Agency = () => {
       gsap.fromTo(
         circle,
         {
-          opacity: 0.6,
+          opacity: 1,
           top: pos.start.top,
           left: pos.start.left,
-          scale: 0.8,
+          scale: 0.9,
         },
         {
           opacity: 1,
@@ -118,7 +118,7 @@ const Agency = () => {
   }, []);
 
   // different circle sizes
-  const circleSizes = [120, 180, 140, 200];
+  const circleSizes = [210, 210, 210, 210];
   const circleImages = [circle1, circle2, circle3, circle4];
 
   return (
@@ -145,7 +145,7 @@ const Agency = () => {
             src={img}
             alt={`circle-${i}`}
             fill
-            style={{ objectFit: "cover", borderRadius: "50%" }}
+            style={{ objectFit: "contain" }}
           />
         </div>
       ))}
@@ -201,8 +201,7 @@ const Agency = () => {
         .circle-box {
           position: absolute;
           z-index: 0;
-          border-radius: 50%;
-          overflow: hidden; /* image ke liye */
+           overflow: hidden; 
           display: flex;
           align-items: center;
           justify-content: center;
@@ -212,8 +211,8 @@ const Agency = () => {
 
         /* Orb effect */
         .orb-footer {
-          box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2),
-            0 5px 15px rgba(0, 0, 0, 0.3);
+          // box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.2),
+            // 0 5px 15px rgba(0, 0, 0, 0.3);
           transform-style: preserve-3d;
           position: absolute;
         }
