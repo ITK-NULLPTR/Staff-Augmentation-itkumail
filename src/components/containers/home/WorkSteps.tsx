@@ -51,7 +51,7 @@ const Agency = () => {
           xPercent: -50,
           yPercent: -200,
           top: "47%",
-          scale: 2.3,
+          scale: 2,
           left: "55%",
           rotateY: 0,
           rotateX: 10,

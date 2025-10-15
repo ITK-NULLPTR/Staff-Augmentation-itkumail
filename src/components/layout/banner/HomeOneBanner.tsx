@@ -7,14 +7,14 @@ const HomeOneBanner = () => {
     <section
       className="banner1 hero-banner"
       style={{
-        height: "100vh",
+        height: "80vh",
         width: "100%",
         position: "relative",
         overflow: "hidden",
       }}
     >
       <video
-        src="https://itkumail.com/wp-content/uploads/2024/10/31154486-online-video-cutter.com-1.mp4"  
+        src="https://itkumail.com/wp-content/uploads/2025/10/3966284.mp4"  
         autoPlay
         muted
         loop
