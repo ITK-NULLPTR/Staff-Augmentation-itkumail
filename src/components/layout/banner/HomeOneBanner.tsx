@@ -7,7 +7,7 @@ const HomeOneBanner = () => {
     <section
       className="banner1 hero-banner"
       style={{
-        height: "80vh",
+        height: "100vh",
         width: "100%",
         position: "relative",
         overflow: "hidden",
