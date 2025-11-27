@@ -54,12 +54,15 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
               <div className="col-12">
                 <nav className="navbar p-0">
                   <div className="navbar__logo">
-                    <Link href="/" aria-label="go to home">
+                    <Link href="https://itkumail.com/" aria-label="go to home">
                       <Image src={logoSrc} priority alt="Image" />
                     </Link>
                   </div>
                   <div className="navbar__menu">
                     <ul>
+                      <li className="navbar__item nav-fade">
+                        <Link href="about-us">ABOUT US</Link>
+                      </li>
                       <li className="navbar__item navbar__item--has-children nav-fade">
                         <button
                           aria-label="dropdown menu"
@@ -111,7 +114,7 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
                         </ul>
                       </li>
                       <li className="navbar__item nav-fade">
-                        <Link href="about-us">About Us</Link>
+                        <Link href="about-us">ABOUT US</Link>
                       </li>
                       <li className="navbar__item navbar__item--has-children nav-fade">
                         <button
