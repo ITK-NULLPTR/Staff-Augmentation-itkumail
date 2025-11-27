@@ -54,7 +54,7 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
               <div className="col-12">
                 <nav className="navbar p-0">
                   <div className="navbar__logo">
-                    <Link href="/" aria-label="go to home">
+                    <Link href="https://itkumail.com/" aria-label="go to home">
                       <Image src={logoSrc} priority alt="Image" />
                     </Link>
                   </div>
