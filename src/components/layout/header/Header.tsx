@@ -60,60 +60,73 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
                   </div>
                   <div className="navbar__menu">
                     <ul>
-                      <li className="navbar__item nav-fade">
-                        <Link href="about-us">ABOUT US</Link>
+                      <li className="navbar__item navbar__item--has-children nav-fade">
+                         <button
+                          aria-label="dropdown menu"
+                          className="navbar__dropdown-label"
+                        >
+                         ABOUT US
+                        </button>
+                        <ul className="navbar__sub-menu navbar__sub-menu--lg">
+                          <li>
+                            <Link href="https://itkumail.com/about-us/">About</Link>
+                          </li>
+                          <li>
+                            <Link href="https://itkumail.com/success-stories/">
+                              Success Stories
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="https://itkumail.com/our-branding-process/">Our Branding Process</Link>
+                          </li>
+                          <li>
+                            <Link href="https://itkumail.com/our-news">
+                             News
+                            </Link>
+                          </li>
+                          <li>
+                            <Link href="https://itkumail.com/#">Testimonials</Link>
+                          </li>                                                   
+                        </ul>
                       </li>
-                      
+                       
                       <li className="navbar__item navbar__item--has-children nav-fade">
                         
                         <button
                           aria-label="dropdown menu"
                           className="navbar__dropdown-label"
                         >
-                          Service
+                          SERVICES
                         </button>
                         <ul className="navbar__sub-menu navbar__sub-menu--lg">
                           <li>
-                            <Link href="https://itkumail.com/">Creative Agency</Link>
+                            <Link href="https://itkumail.com/website-development/">Website Development</Link>
                           </li>
                           <li>
-                            <Link href="https://itkumail.com/">
-                              Creative Agency Light
+                            <Link href="https://itkumail.com/front-back-end/">
+                           Front end / Back End Development
                             </Link>
                           </li>
                           <li>
-                            <Link href="index-two">Digital Agency</Link>
+                            <Link href="https://itkumail.com/ui-ux-design/">UI / UX Design</Link>
                           </li>
                           <li>
-                            <Link href="index-two-light">
-                              Digital Agency Light
+                            <Link href="https://itkumail.com/graphic-design/">
+                              Graphic Design
                             </Link>
                           </li>
                           <li>
-                            <Link href="index-three">It Solution</Link>
+                            <Link href="https://itkumail.com/marketing-services/">Marketing Services</Link>
                           </li>
                           <li>
                             <Link href="index-three-light">
-                              It Solution Light
+                             Social Media Managment
                             </Link>
                           </li>
                           <li>
-                            <Link href="index-four">Personal Portfolio</Link>
+                            <Link href="https://itkumail.com/videography/">Videography</Link>
                           </li>
-                          <li>
-                            <Link href="index-four-light">
-                              Personal Portfolio Light
-                            </Link>
-                          </li>
-                          <li>
-                            <Link href="index-five">Interactive Portfolio</Link>
-                          </li>
-                          <li>
-                            <Link href="index-five-light">
-                              Interactive Portfolio Light
-                            </Link>
-                          </li>
-                        </ul>
+                         </ul>
                       </li>
                       
                       <li className="navbar__item navbar__item--has-children nav-fade">
@@ -121,98 +134,30 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
                           aria-label="dropdown menu"
                           className="navbar__dropdown-label"
                         >
-                          Services
+                          Engagement Models
                         </button>
                         <ul className="navbar__sub-menu">
                           <li>
-                            <Link href="our-services">Our Services</Link>
+                            <Link href="our-services">Software Development Outsourcing</Link>
                           </li>
                           <li>
-                            <Link href="service-single">Service Details</Link>
+                            <Link href="service-single">Dedicated Teams</Link>
+                          </li>
+                          <li>
+                            <Link href="service-single">IT Staff Augmentation</Link>
+                          </li>
+                          <li>
+                            <Link href="service-single">New Venture Partnership</Link>
                           </li>
                         </ul>
                       </li>
-                      <li className="navbar__item navbar__item--has-children nav-fade">
-                        <button
-                          aria-label="dropdown menu"
-                          className="navbar__dropdown-label"
-                        >
-                          Projects
-                        </button>
-                        <ul className="navbar__sub-menu">
-                          <li>
-                            <Link href="our-projects">Our Projects</Link>
-                          </li>
-                          <li>
-                            <Link href="project-single">Project Details</Link>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className="navbar__item navbar__item--has-children nav-fade">
-                        <button
-                          aria-label="dropdown menu"
-                          className="navbar__dropdown-label"
-                        >
-                          Pages
-                        </button>
-                        <ul className="navbar__sub-menu">
-                          <li>
-                            <Link href="faq">FAQ</Link>
-                          </li>
-                          <li>
-                            <Link href="404">Error</Link>
-                          </li>
-                          <li>
-                            <Link href="our-story">Our Story</Link>
-                          </li>
-                          <li>
-                            <Link href="portfolio">Portfolio</Link>
-                          </li>
-                          <li className="navbar__item navbar__item--has-children">
-                            <button
-                              aria-label="dropdown menu"
-                              className="navbar__dropdown-label navbar__dropdown-label-sub"
-                            >
-                              Team
-                            </button>
-                            <ul className="navbar__sub-menu navbar__sub-menu__nested">
-                              <li>
-                                <Link href="our-teams">Our Teams</Link>
-                              </li>
-                              <li>
-                                <Link href="team-single">Team Details</Link>
-                              </li>
-                            </ul>
-                          </li>
-                          <li>
-                            <Link href="client-feedback">Testimonials</Link>
-                          </li>
-                          <li>
-                            <Link href="contact-us">Contact Us</Link>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className="navbar__item navbar__item--has-children nav-fade">
-                        <button
-                          aria-label="dropdown menu"
-                          className="navbar__dropdown-label"
-                        >
-                          Blog
-                        </button>
-                        <ul className="navbar__sub-menu">
-                          <li>
-                            <Link href="blog">Blog</Link>
-                          </li>
-                          <li>
-                            <Link href="blog-single">Blog Details</Link>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
+                      
+                     
+                   </ul>
                   </div>
                   <div className="navbar__options">
                     <div className="navbar__mobile-options d-none d-sm-flex">
-                      <Link href="contact-us" className="btn btn--secondary">
+                      <Link href="https://itkumail.com/contact-us/" className="btn btn--secondary">
                         Let&apos;s Talk
                       </Link>
                     </div>
