@@ -69,7 +69,7 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
                         </button>
                         <ul className="navbar__sub-menu navbar__sub-menu--lg">
                           <li>
-                            <Link href="/">Creative Agency</Link>
+                            <Link href="https://itkumail.com/">Creative Agency</Link>
                           </li>
                           <li>
                             <Link href="https://itkumail.com/">
