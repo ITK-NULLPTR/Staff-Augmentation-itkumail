@@ -70,7 +70,7 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
                           aria-label="dropdown menu"
                           className="navbar__dropdown-label"
                         >
-                          Home
+                          Service
                         </button>
                         <ul className="navbar__sub-menu navbar__sub-menu--lg">
                           <li>
