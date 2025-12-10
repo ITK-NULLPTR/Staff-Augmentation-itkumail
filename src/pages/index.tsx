@@ -13,11 +13,13 @@ import WorkSteps from "@/components/containers/home/WorkSteps";
 import HomeTextslider2 from "@/components/containers/home/HomeTextslider2";
 import HomeTextslider from "@/components/containers/home/HomeTextslider";
 import HomeTextslider3 from "@/components/containers/home/HomeTextslider3";
- import Has from "@/components/containers/home/Has";
+import Has from "@/components/containers/home/Has";
 import An from "@/components/containers/home/An";
 import Hand from "@/components/containers/home/Hand";
 import Unseen from "@/components/containers/home/Unseen";
 import WhoIsThere from "@/components/layout/banner/who'sthere";
+import OrbitScrollSection from "@/components/containers/home/OrbitScrollSection";
+import BrandPrograms from "@/components/containers/home/BrandPrograms";
 
 const Home = () => {
   return (
@@ -35,6 +37,8 @@ const Home = () => {
       {/* <HomeFiveBanner2 /> */}
       {/* <PortfolioText /> */}
       <WhoIsThere />
+      <OrbitScrollSection />
+      <BrandPrograms />
     </Layout>
   );
 };
