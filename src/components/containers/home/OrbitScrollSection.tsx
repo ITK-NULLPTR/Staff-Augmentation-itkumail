@@ -3,7 +3,6 @@ import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-// Register plugin
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
@@ -24,29 +23,25 @@ const OrbitScrollSection = () => {
 
     if (!section || !pin || !content) return;
 
-    // Responsive radius
     const radius = window.innerWidth < 700 ? 300 : 400;
 
-    // Main timeline - FIXED: Proper pinning
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "+=3000", // Zyada scroll space
+        end: "+=3000",
         scrub: 0.5,
-        pin: true, // Section ko pin karo, pin ref ko nahi
+        pin: true,
         anticipatePin: 1,
       },
     });
 
-    // Initial content state
     gsap.set(content, {
       opacity: 0,
       scale: 0.8,
       visibility: "hidden",
     });
 
-    // Initial image states
     images.forEach((img) => {
       if (!img) return;
       gsap.set(img, {
@@ -62,7 +57,6 @@ const OrbitScrollSection = () => {
       });
     });
 
-    // Animate images to orbit
     images.forEach((img, index) => {
       if (!img) return;
 
@@ -95,7 +89,6 @@ const OrbitScrollSection = () => {
         0.5
       );
 
-      // Floating effect
       if (imageElements[index]) {
         gsap.to(imageElements[index], {
           x: () => gsap.utils.random(-5, 5),
@@ -110,7 +103,6 @@ const OrbitScrollSection = () => {
       }
     });
 
-    // Content fade in
     tl.to(
       content,
       {
@@ -165,168 +157,157 @@ const OrbitScrollSection = () => {
 
   return (
     <>
-     
-    <section
-      ref={sectionRef}
-      style={{
-        position: "relative",
-        width: "100%",
-        height: "1250px",
-        background: "black",
-        overflow: "hidden",
-        
-      }}
-    >
-      <div
-        ref={pinRef}
+      <section
+        ref={sectionRef}
         style={{
           position: "relative",
           width: "100%",
-          height: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-         
+          height: "1250px",
+          background: "black",
+          overflow: "hidden",
         }}
       >
-        {/* Content */}
         <div
-          ref={contentRef}
+          ref={pinRef}
           style={{
-            position: "absolute",
-            zIndex: 20,
-            maxWidth: "42rem",
-            margin: "0 auto",
-            padding: "0 1.5rem",
-            textAlign: "center",
-            opacity: 0,
-            transform: "scale(0.8)",
-            visibility: "hidden",
-          }}
-        >
-          <h2
-            style={{
-              fontSize: "clamp(1.875rem, 5vw, 2.25rem)",
-              fontWeight: 700,
-              color: "white",
-              marginBottom: "1.5rem",
-              lineHeight: 1.25,
-            }}
-          >
-            AI is not just disrupting <br /> how people search
-          </h2>
-          <p
-            style={{
-              fontSize: "clamp(1.125rem, 3vw, 1.25rem)",
-              color: "#d1d5db",
-              marginBottom: "2.5rem",
-              lineHeight: 1.625,
-              padding: "0px 20px",
-            }}
-          >
-            It is deciding what they see and what they do not. If your brand is
-            not part of the answer, it is not part of the conversation.
-          </p>
-
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              gap: "2px",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <button
-              style={{
-                padding: "0.75rem 1.75rem",
-                background: "linear-gradient(to right, #9333ea, #db2777)",
-                color: "white",
-                borderRadius: "9999px",
-                fontWeight: 600,
-                fontSize: "1rem",
-                border: "none",
-                cursor: "pointer",
-                transition: "all 0.3s",
-              }}
-            >
-              Contact us 
-            </button>
-       
-          </div>
-        </div>
-
-        {/* Orbit Container */}
-        <div
-          style={{
-            position: "absolute",
+            position: "relative",
             width: "100%",
-            height: "1250px",
+            height: "100vh",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            overflow: "hidden",
           }}
         >
           <div
+            ref={contentRef}
             style={{
-              position: "relative",
-              width: "600px",
+              position: "absolute",
+              zIndex: 20,
+              maxWidth: "42rem",
+              margin: "0 auto",
+              padding: "0 1.5rem",
+              textAlign: "center",
+              opacity: 0,
+              transform: "scale(0.8)",
+              visibility: "hidden",
+            }}
+          >
+            <h2
+              style={{
+                fontSize: "clamp(1.875rem, 5vw, 2.25rem)",
+                fontWeight: 700,
+                color: "white",
+                marginBottom: "1.5rem",
+                lineHeight: 1.25,
+              }}
+            >
+              AI is not just disrupting <br /> how people search
+            </h2>
+            <p
+              style={{
+                fontSize: "clamp(1.125rem, 3vw, 1.25rem)",
+                color: "#d1d5db",
+                marginBottom: "2.5rem",
+                lineHeight: 1.625,
+                padding: "0px 20px",
+              }}
+            >
+              It is deciding what they see and what they do not. If your brand
+              is not part of the answer, it is not part of the conversation.
+            </p>
+
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "2px",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <button
+                style={{
+                  padding: "0.75rem 1.75rem",
+                  background: "linear-gradient(to right, #9333ea, #db2777)",
+                  color: "white",
+                  borderRadius: "9999px",
+                  fontWeight: 600,
+                  fontSize: "1rem",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "all 0.3s",
+                }}
+              >
+                Contact us
+              </button>
+            </div>
+          </div>
+
+          <div
+            style={{
+              position: "absolute",
+              width: "100%",
               height: "1250px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-             
+              overflow: "hidden",
             }}
           >
-            {imageData.map((image, index) => (
-              <div
-                key={index}
-                ref={(el) => {
-                  imagesRef.current[index] = el;
-                }}
-                style={{
-                  position: "absolute",
-                  top: "50%",
-                  left: "50%",
-                  transform: "translate(-50%, -50%)",
-                  transformStyle: "preserve-3d",
-                }}
-              >
+            <div
+              style={{
+                position: "relative",
+                width: "600px",
+                height: "1250px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {imageData.map((image, index) => (
                 <div
+                  key={index}
+                  ref={(el) => {
+                    imagesRef.current[index] = el;
+                  }}
                   style={{
-                    width: "200px",
-                    height: "250px",
-                    borderRadius: "1rem",
-                    overflow: "hidden",
-                    boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-                    border: "4px solid rgba(255, 255, 255, 0.1)",
-                    transition: "all 0.3s",
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    transformStyle: "preserve-3d",
                   }}
                 >
-                  <img
-                    ref={(el) => {
-                      imageElementsRef.current[index] = el;
-                    }}
-                    src={image.src}
-                    alt={image.alt}
+                  <div
                     style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
+                      width: "200px",
+                      height: "250px",
+                      borderRadius: "1rem",
+                      overflow: "hidden",
+                      boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+                      border: "4px solid rgba(255, 255, 255, 0.1)",
+                      transition: "all 0.3s",
                     }}
-                  />
+                  >
+                    <img
+                      ref={(el) => {
+                        imageElementsRef.current[index] = el;
+                      }}
+                      src={image.src}
+                      alt={image.alt}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-      
-    </section>
- 
-   
-    
+      </section>
     </>
   );
 };

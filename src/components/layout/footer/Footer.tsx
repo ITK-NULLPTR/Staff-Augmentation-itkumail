@@ -6,25 +6,7 @@ import logo from "public/images/logo.png";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
-    <footer
-     
-    >
-      <div className="container f1 ">
-        {/* <div className="row">
-          <div className="col-12">
-            <div className="footer-four__content">
-              <div className="intro text-center">
-                <h2 className="light-title text-uppercase title-anim">
-                  Let&apos;s make some magic ✨ happen and show the world what
-                  your brand is all about! <br></br>
-                </h2>
-              </div>
-           
-            </div>
-          </div>
-        </div>
-        */}
-      </div>
+    <footer>
       <div className="container">
         <div className="row gaper">
           <div className="col-12 col-lg-5 col-xl-6">
@@ -38,26 +20,38 @@ const Footer = () => {
                   target="_blank"
                 >
                   <i className="fa-sharp fa-solid fa-location-dot"></i>
-                  901 N Pitt Str., Suite 170 Alexandria, USA
-                </Link><br></br>
-                
+                  2880 Davenport House, 261 Bolton Rd, Bury, BL8 2NZ, Lancs,
+                  United Kingdom
+                </Link>
+                <br></br>
+                <Link
+                  href="https://www.google.com/maps/d/viewer?mid=1UZ57Drfs3SGrTgh6mrYjQktu6uY&hl=en_US&ll=18.672105000000013%2C105.68673800000003&z=17"
+                  target="_blank"
+                >
+                  <i className="fa-sharp fa-solid fa-location-dot"></i>
+                  13-B Commercial Area, B block DHA Phase 5, 54000 Lahore,
+                  Pakistan
+                </Link>
+                <br></br>
                 <Link href="tel:406-555-0120">
                   <i className="fa-sharp fa-solid fa-phone-volume"></i>
-                  (406) 555-0120
-                </Link><br></br>
+                  +44(0)3334444472
+                </Link>
+                <br></br>
+                <Link href="tel:406-555-0120">
+                  <i className="fa-sharp fa-solid fa-phone-volume"></i>
+                  +92 308 1472233
+                </Link>
+                <br></br>
                 <Link href="mailto:info@xpovio.com">
                   <i className="fa-sharp fa-solid fa-envelope"></i>
-                  info@xpovio.com
+                hello@itkumail.com
                 </Link>
               </div>
-              <div className="footer__cta text-start">
-                <Link href="contact-us" className="btn btn--secondary">
-                  book a call now
-                </Link>
-              </div>
+             
             </div>
           </div>
-          <div className="col-12 col-lg-2 col-xl-2">
+          <div className="col-12 col-lg-2 col-xl-2 gap-2">
             <div className="footer__single">
               <div className="footer__single-intro">
                 <h5>discover</h5>
@@ -65,16 +59,25 @@ const Footer = () => {
               <div className="footer__single-content">
                 <ul>
                   <li>
-                    <Link href="about-us">About Us</Link>
+                    <Link href="https://itkumail.com/website-development/">Website Development</Link>
                   </li>
                   <li>
-                    <Link href="client-feedback">Award Winning</Link>
+                    <Link href="https://itkumail.com/graphic-design/">Graphic Design</Link>
+                  </li>
+                    <li>
+                    <Link href="https://itkumail.com/videography/">Videography</Link>
                   </li>
                   <li>
-                    <Link href="blog">News & Blog</Link>
+                    <Link href="https://itkumail.com/front-back-end/">Front end / Back End Development</Link>
                   </li>
                   <li>
-                    <Link href="contact-us">careers</Link>
+                    <Link href="https://itkumail.com/marketing-services/">Marketing Services</Link>
+                  </li>
+                      <li>
+                    <Link href="https://itkumail.com/ui-ux-design/">UI / UX Design</Link>
+                  </li>
+                      <li>
+                    <Link href="https://itkumail.com/#">Social Media Managment</Link>
                   </li>
                 </ul>
               </div>
@@ -123,9 +126,9 @@ const Footer = () => {
                         href="https://themeforest.net/user/UltraDevs"
                         target="_blank"
                       >
-                            ITkumail{" "}
+                        ITkumail{" "}
                       </Link>
-                . All rights reserved.
+                      . All rights reserved.
                     </p>
                   </div>
                 </div>
