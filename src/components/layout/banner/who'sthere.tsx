@@ -36,7 +36,7 @@ const Agency = () => {
     };
   }, []);
 
-  const circleStyle: React.CSSProperties = { 
+  const circleStyle: React.CSSProperties = {
     width: "150px",
     height: "150px",
     borderRadius: "50%",
@@ -86,10 +86,26 @@ const Agency = () => {
         padding: "40px 20px",
       }}
     >
-      <div style={{ display: "flex", flexDirection: "column", gap: "20px", alignItems: "center" }}>
-        <div style={{ display: "flex", gap: "15px", justifyContent: "center", alignItems: "center" }}>
-           <div
-            ref={(el) => el && (circlesRef.current[0] = el)}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "20px",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            gap: "15px",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div
+            ref={(el) => {
+              if (el) circlesRef.current[0] = el;
+            }}
             style={circleStyle}
             onMouseMove={hoverFollow}
             onMouseLeave={hoverOut}
@@ -97,7 +113,9 @@ const Agency = () => {
             W
           </div>
           <div
-            ref={(el) => el && (circlesRef.current[1] = el)}
+            ref={(el) => {
+              if (el) circlesRef.current[1] = el;
+            }}
             style={circleStyle}
             onMouseMove={hoverFollow}
             onMouseLeave={hoverOut}
@@ -105,10 +123,12 @@ const Agency = () => {
             E
           </div>
 
-           <div style={{ width: "3%", height: "150px" }}></div>
+          <div style={{ width: "3%", height: "150px" }}></div>
 
           <div
-            ref={(el) => el && (circlesRef.current[2] = el)}
+            ref={(el) => {
+              if (el) circlesRef.current[2] = el;
+            }}
             style={circleStyle}
             onMouseMove={hoverFollow}
             onMouseLeave={hoverOut}
@@ -116,7 +136,9 @@ const Agency = () => {
             A
           </div>
           <div
-            ref={(el) => el && (circlesRef.current[3] = el)}
+            ref={(el) => {
+              if (el) circlesRef.current[3] = el;
+            }}
             style={circleStyle}
             onMouseMove={hoverFollow}
             onMouseLeave={hoverOut}
@@ -124,7 +146,9 @@ const Agency = () => {
             R
           </div>
           <div
-            ref={(el) => el && (circlesRef.current[4] = el)}
+            ref={(el) => {
+              if (el) circlesRef.current[4] = el;
+            }}
             style={circleStyle}
             onMouseMove={hoverFollow}
             onMouseLeave={hoverOut}

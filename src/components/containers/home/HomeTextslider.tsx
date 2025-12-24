@@ -40,8 +40,7 @@ const HomeTextslider = () => {
 
   return (
     <section className="agency-section" ref={sectionRef}>
-      {/* Centered Text */}
-      <div className="center-content">
+       <div className="center-content">
         <h2 className="title">EVERY</h2>
       </div>
 
@@ -66,7 +65,7 @@ const HomeTextslider = () => {
         }
 
         .title {
-          font-size: clamp(12rem, 8vw, 5rem);
+          font-size: clamp(8rem, 8vw, 3rem);
           color: #fff;
           margin: 0;
           text-align: center;

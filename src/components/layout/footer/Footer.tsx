@@ -92,7 +92,7 @@ const Footer = () => {
                 <p>
                   Welcome to our digital agency We specialize in helping
                   business most like yours succeed online.
-                </p>
+                </p> 
                 <div className="footer__single-form">
                   <form action="#" method="post">
                     <div className="input-email">
