@@ -1,25 +1,19 @@
 "use client";
-
 import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
 import star from "public/images/star.png";
 import dotlarge from "public/images/agency/dot-large.png";
-
 gsap.registerPlugin(ScrollTrigger);
-
 const Agency = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const wordsRef = useRef<HTMLHeadingElement[]>([]);
-
   const words = ["HAS", "AN", "UNSEEN", "HAND"];
-
   useEffect(() => {
     const section = sectionRef.current;
+    const isMobile = window.innerWidth < 768;
     if (!section) return;
-
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
@@ -29,14 +23,19 @@ const Agency = () => {
         pin: true,
       },
     });
-
-    const positions = [
-      { x: -560, y: 220 }, 
-      { x: -330, y: 220 }, 
-      { x: -1, y: 220 },  
-      { x: 400, y: 220 },  
-    ];
-
+    const positions = isMobile
+      ? [
+          { x: -160, y: 150 },
+          { x: -80, y: 150 },
+          { x: 30, y: 150 },
+          { x: 150, y: 150 },
+        ]
+      : [
+          { x: -500, y: 200 },
+          { x: -300, y: 200 },
+          { x: 20, y: 200 },
+          { x: 400, y: 200 },
+        ];
     wordsRef.current.forEach((word, i) => {
       tl.fromTo(
         word,
@@ -44,7 +43,6 @@ const Agency = () => {
         { opacity: 1, y: 0, x: 0, scale: 1, duration: 2, ease: "power3.out" },
         i * 2
       );
-
       tl.to(
         word,
         {
@@ -58,12 +56,10 @@ const Agency = () => {
         (i + 1) * 2
       );
     });
-
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
-
   return (
     <section className="agency" ref={sectionRef}>
       <div className="center-content">
@@ -79,10 +75,13 @@ const Agency = () => {
           </h2>
         ))}
       </div>
-
       <Image src={star} alt="Star Decoration" className="star" priority />
-      <Image src={dotlarge} alt="Dot Decoration" className="dot-large" priority />
-
+      <Image
+        src={dotlarge}
+        alt="Dot Decoration"
+        className="dot-large"
+        priority
+      />
       <style jsx>{`
         .agency {
           height: 100vh;
@@ -90,7 +89,6 @@ const Agency = () => {
           position: relative;
           overflow: hidden;
         }
-
         .center-content {
           position: relative;
           height: 100%;
@@ -99,7 +97,6 @@ const Agency = () => {
           justify-content: center;
           align-items: center;
         }
-
         .title {
           position: absolute;
           font-size: clamp(3rem, 10vw, 12rem);
@@ -109,29 +106,44 @@ const Agency = () => {
           opacity: 0;
           white-space: nowrap;
         }
-
         .star,
         .dot-large {
           position: absolute;
           z-index: 2;
         }
-
         .star {
           top: 10%;
           left: 5%;
           width: 60px;
           height: auto;
         }
-
         .dot-large {
           bottom: 10%;
           right: 5%;
           width: 80px;
           height: auto;
         }
+        @media (max-width: 768px) {
+          .agency {
+            height: 80vh; 
+            width: 100%;
+          }
+          .title {
+            font-size: clamp(2rem, 12vw, 4rem);
+          }
+          .star {
+            width: 40px;
+            top: 5%;
+            left: 4%;
+          }
+          .dot-large {
+            width: 50px;
+            bottom: 5%;
+            right: 4%;
+          }
+        }
       `}</style>
     </section>
   );
 };
-
 export default Agency;

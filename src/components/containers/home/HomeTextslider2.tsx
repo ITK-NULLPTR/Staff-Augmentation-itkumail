@@ -5,6 +5,9 @@ import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
+import star from "public/images/star.png";
+import dotlarge from "public/images/agency/dot-large.png";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const AgencySlider = () => {
@@ -51,36 +54,42 @@ const AgencySlider = () => {
 
   return (
     <section className="agency-slider" ref={sectionRef}>
+      {/* Centered Text */}
       <div className="center-content">
         <h2 className="title">GREAT</h2>
       </div>
 
+ 
+
       <style jsx>{`
         .agency-slider {
-          position: relative;
-          height: 60vh;
+            position: relative;
+          height: 60vh;  
           overflow: hidden;
           background: #000;
           display: flex;
-          justify-content: center;
-          align-items: flex-end;
-          padding-bottom: 7vh;
+          justify-content: center;  
+          align-items: flex-end;  
+          padding-bottom: 7vh;  
           background: transparent; /* section transparent */
         }
 
         .center-content {
-          display: flex;
+              display: flex;
           justify-content: center;
           align-items: center;
         }
 
         .title {
-          font-size: clamp(8rem, 8vw, 6rem);
+          font-size: clamp(4rem, 12vw, 12rem);
           margin: 0;
           text-align: center;
           font-weight: 900;
           color: #000 !important;
         }
+ 
+
+     
       `}</style>
     </section>
   );

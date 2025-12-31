@@ -23,16 +23,19 @@ const OrbitScrollSection = () => {
 
     if (!section || !pin || !content) return;
 
-    const radius = window.innerWidth < 700 ? 300 : 400;
+    const radius = window.innerWidth < 768 ? 230 : 370;
+    const offsetDesk_X = window.innerWidth < 768 ? 0 : 75;
+    const offsetMobile_X = window.innerWidth > 768 ? 0 : 50;
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "+=3000",
+        end: "bottom+=200% top",
         scrub: 0.5,
         pin: true,
         anticipatePin: 1,
+        invalidateOnRefresh: true,
       },
     });
 
@@ -61,7 +64,10 @@ const OrbitScrollSection = () => {
       if (!img) return;
 
       const angle = index * 45;
-      const finalX = Math.cos(((angle - 90) * Math.PI) / 180) * radius;
+      const finalX =
+        Math.cos(((angle - 90) * Math.PI) / 180) * radius +
+        offsetDesk_X +
+        offsetMobile_X;
       const finalY = Math.sin(((angle - 90) * Math.PI) / 180) * radius;
 
       tl.to(
@@ -162,7 +168,7 @@ const OrbitScrollSection = () => {
         style={{
           position: "relative",
           width: "100%",
-          height: "1250px",
+          height: "100%",
           background: "black",
           overflow: "hidden",
         }}
@@ -172,7 +178,7 @@ const OrbitScrollSection = () => {
           style={{
             position: "relative",
             width: "100%",
-            height: "100vh",
+            height:  "100vh",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -193,23 +199,23 @@ const OrbitScrollSection = () => {
             }}
           >
             <h2
+              className="mb-1 md:mb-4 lg:mb-6"
               style={{
-                fontSize: "clamp(1.875rem, 5vw, 2.25rem)",
+                fontSize: "clamp(0.8rem, 5vw, 2.25rem)",
                 fontWeight: 700,
                 color: "white",
-                marginBottom: "1.5rem",
                 lineHeight: 1.25,
               }}
             >
               AI is not just disrupting <br /> how people search
             </h2>
             <p
+              className="mb-4 md:mb-6 lg:mb-8"
               style={{
-                fontSize: "clamp(1.125rem, 3vw, 1.25rem)",
+                fontSize: "clamp(0.6rem, 3vw, 1.25rem)",
                 color: "#d1d5db",
-                marginBottom: "2.5rem",
                 lineHeight: 1.625,
-                padding: "0px 20px",
+                padding: "0px 24px",
               }}
             >
               It is deciding what they see and what they do not. If your brand
@@ -279,9 +285,8 @@ const OrbitScrollSection = () => {
                   }}
                 >
                   <div
+                    className="w-50 h-50 md:w-75 md:h-75 lg:w-100 lg:h-100 "
                     style={{
-                      width: "200px",
-                      height: "250px",
                       borderRadius: "1rem",
                       overflow: "hidden",
                       boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",

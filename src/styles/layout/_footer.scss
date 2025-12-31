@@ -136,3 +136,12 @@
 
     gap: 20px;
 }
+.footer__single {
+  padding: 130px 0 60px 0;
+}
+
+ @media (max-width: 768px) {
+  .footer__single {
+    padding: 0px 0;
+  }
+}

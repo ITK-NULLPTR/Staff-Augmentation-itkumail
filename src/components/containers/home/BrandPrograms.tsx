@@ -11,36 +11,37 @@ const BrandProgramsSection = () => {
   const subtitleRefs = useRef<Record<string, HTMLHeadingElement | null>>({});
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
-   useEffect(() => {
+  useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
-     gsap.set(section, { backgroundColor: "#000000" });
+    gsap.set(document.body, { backgroundColor: "#000000" });
 
     ScrollTrigger.create({
       trigger: section,
-      start: "top 60%",      
-      end: "bottom 40%",
+      start: "top 90%",
+      end: "bottom 46%",
       onEnter: () => {
-        gsap.to(section, { backgroundColor: "#ffffff", duration: 0.4 });
+        gsap.to(document.body, { backgroundColor: "#ffffff", duration: 0.9 });
       },
       onEnterBack: () => {
-        gsap.to(section, { backgroundColor: "#ffffff", duration: 0.4 });
+        gsap.to(document.body, { backgroundColor: "#ffffff", duration: 0.9 });
       },
       onLeave: () => {
-        gsap.to(section, { backgroundColor: "#000000", duration: 0.4 });
+        gsap.to(document.body, { backgroundColor: "#000000", duration: 0.6 });
       },
       onLeaveBack: () => {
-        gsap.to(section, { backgroundColor: "#000000", duration: 0.4 });
+        gsap.to(document.body, { backgroundColor: "#000000", duration: 0.9 });
       },
     });
 
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
+      gsap.set(document.body, { backgroundColor: "" });
     };
   }, []);
 
-   useEffect(() => {
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -49,13 +50,9 @@ const BrandProgramsSection = () => {
 
           const id = parseInt(idStr);
           if (entry.isIntersecting) {
-            setVisibleSubtitles((prev) =>
-              Array.from(new Set([...prev, id]))
-            );
+            setVisibleSubtitles((prev) => Array.from(new Set([...prev, id])));
           } else {
-            setVisibleSubtitles((prev) =>
-              prev.filter((item) => item !== id)
-            );
+            setVisibleSubtitles((prev) => prev.filter((item) => item !== id));
           }
         });
       },
@@ -117,88 +114,147 @@ const BrandProgramsSection = () => {
         ref={sectionRef}
         className="brand-programs-section-wrapper"
         style={{
-          paddingTop: "6rem",
+          paddingTop: "3rem",
           paddingBottom: "3rem",
           transition: "background-color 1s ease",
         }}
       >
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <div className="mb-5" style={{ marginTop: "7rem" }}>
-            <h2 className="brand-heading-large fw-bold text-danger mb-3">
+          <div className="mb-4 mb-md-5" style={{ marginTop: "2rem" }}>
+            <h2
+              className="fw-bold mb-3 text-danger"
+              style={{
+                fontSize: "clamp(1.5rem, 4vw, 4rem)",
+                lineHeight: "1.2",
+              }}
+            >
               Our brand-building programs
             </h2>
-            <h2 className="brand-heading-large fw-bold text-dark lh-sm">
-              We've poured our 15 years of expertise into
-              <br className="d-none d-md-block" />
-              ways of working fit for every opportunity.
+            <h2
+              className="fw-bold text-black"
+              style={{
+                fontSize: "clamp(1.75rem, 5vw, 4rem)",
+                lineHeight: "1.3",
+              }}
+            >
+              We've poured our 15 years of expertise into ways of working fit
+              for every opportunity.
             </h2>
           </div>
 
-          <div className="row g-4 g-md-5">
+          <div className="row g-3 g-md-4 g-lg-5">
             {programs.map((program) => (
               <div
                 key={program.id}
-                className="col-12 mb-4 mb-md-5"
+                className="col-12 mb-3 mb-md-4 mb-lg-5 mt-4 mt-md-4 mt-lg-5 "
                 onMouseEnter={() => setHoveredIndex(program.id)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                 <div className="row align-items-end d-none d-md-flex">
-                  <div className="col-md-3">
+                <div className="row align-items-end d-none d-md-flex">
+                  <div className="col-md-3 col-lg-3">
                     <h3
                       className="fw-bold text-danger"
                       style={{
-                        opacity: hoveredIndex === program.id ? 1 : 0.3,
+                        opacity: hoveredIndex === program.id ? 1 : 0.8,
                         transform:
                           hoveredIndex === program.id
                             ? "translateY(0)"
                             : "translateY(20px)",
                         transition: "all 0.5s ease",
-                        fontSize: "clamp(3rem, 6vw, 4rem)",
+                        fontSize: "clamp(2.5rem, 5vw, 4rem)",
                       }}
                     >
                       {program.name}
                     </h3>
                   </div>
 
-                  <div className="col-md-6 text-end">
+                  <div className="col-md-6 col-lg-6 text-center text-md-end mw-100 h-auto">
                     <img
                       src={program.image}
                       alt={program.name}
                       style={{
-                        maxWidth: "300px",
-                        height: "300px",
+                        width: "clamp(200px, 30vw, 350px)",
                         objectFit: "contain",
                       }}
                     />
                   </div>
 
-                  <div className="col-md-3 text-end">
+                  <div className="col-md-3 col-lg-3 text-end">
                     <button
-                      className="btn btn-danger   px-4 py-3 fw-bold"
+                      className="btn btn-danger text-white px-3 px-lg-4 py-2 py-lg-3 fw-bold"
                       onClick={() => (window.location.href = program.link)}
+                      style={{
+                        fontSize: "clamp(0.9rem, 1.5vw, 1.1rem)",
+                        cursor: "pointer",
+                      }}
                     >
                       → {program.name}
                     </button>
                   </div>
                 </div>
 
-                 <h4
-                  ref={(el) => {
-                    if (el) subtitleRefs.current[program.id] = el;
-                  }}
-                  data-program-id={program.id}
-                  className="fw-bold text-dark mt-4"
-                  style={{
-                    fontSize: "clamp(2rem, 6vw, 4rem)",
-                    opacity: visibleSubtitles.includes(program.id) ? 1 : 0,
-                    transform: visibleSubtitles.includes(program.id)
-                      ? "translateY(0)"
-                      : "translateY(50px)",
-                    transition: "all 1s ease",
-                  }}
-                >
-                  {program.subtitle}
-                </h4>
+                <div className="d-md-none">
+                  <div className="mb-3 text-end">
+                    <img
+                      src={program.image}
+                      alt={program.name}
+                      style={{
+                        maxWidth: "100%",
+                        width: "clamp(180px, 60vw, 250px)",
+                        height: "auto",
+                        objectFit: "contain",
+                        marginTop: "29px",
+                      }}
+                    />
+                    <h3
+                      className="fw-bold text-start text-danger px-1"
+                      style={{
+                        fontSize: "clamp(2.6875rem, 8vw, 3rem)",
+                        marginBottom: "1rem",
+                        color: "#ff5d60",
+                      }}
+                    >
+                      {program.name}
+                    </h3>
+                  </div>
+                  
+                  
+                </div>
+                <h4
+                    ref={(el) => {
+                      if (el) subtitleRefs.current[program.id] = el;
+                    }}
+                    data-program-id={program.id}
+                    className="text-end text-md-start fw-bold mt-3 mt-md-4 text-black"
+                    style={{
+                      fontSize: "clamp(2.6875rem, 5vw, 3.5rem)",
+                      opacity: visibleSubtitles.includes(program.id) ? 1 : 0,
+                      transform: visibleSubtitles.includes(program.id)
+                        ? "translateY(0)"
+                        : "translateY(50px)",
+                      transition: "all 1s ease",
+                      lineHeight: "1.2",
+                    
+                    }}
+                  >
+                    {program.subtitle}
+                  </h4>
+                <div className="d-md-none  ">
+                <div className="text-start">
+                    <button
+                      className="btn btn-danger text-white px-1 lg:px-4 py-3 lg:py-3 fw-bold w-50"
+                      onClick={() => (window.location.href = program.link)}
+                      style={{
+                        fontSize: "1rem",
+                        maxWidth: "300px",
+                        cursor: "pointer",
+                        border: "none",
+                      }}
+                    >
+                      → {program.name}
+                    </button>
+                  </div>
+                  </div>
               </div>
             ))}
           </div>

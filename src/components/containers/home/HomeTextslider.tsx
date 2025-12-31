@@ -1,12 +1,9 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-import star from "public/images/star.png";
-import dotlarge from "public/images/agency/dot-large.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,7 +37,8 @@ const HomeTextslider = () => {
 
   return (
     <section className="agency-section" ref={sectionRef}>
-       <div className="center-content">
+      {/* Centered Text */}
+      <div className="center-content">
         <h2 className="title">EVERY</h2>
       </div>
 
@@ -65,7 +63,7 @@ const HomeTextslider = () => {
         }
 
         .title {
-          font-size: clamp(8rem, 8vw, 3rem);
+          font-size: clamp(4rem, 12vw, 12rem);
           color: #fff;
           margin: 0;
           text-align: center;
