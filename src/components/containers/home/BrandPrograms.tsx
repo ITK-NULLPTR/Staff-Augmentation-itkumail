@@ -76,32 +76,32 @@ const BrandProgramsSection = () => {
   const programs = [
     {
       id: 1,
-      name: "Shakeup",
-      subtitle: "Change your Market",
+      name: "We don’t ",
+      subtitle: "Send Contractors",
       image:
         "https://cdn.prod.website-files.com/671614fdaa6a0812f40213dc/67314d70b4c68c8bc6ece278_Shakeup-bottle-black.gif",
       link: "/shakeup",
     },
     {
       id: 2,
-      name: "Slingshot",
-      subtitle: "Launch Your Innovation",
+      name: "We Extend ",
+      subtitle: "Your Team",
       image:
         "https://cdn.prod.website-files.com/671614fdaa6a0812f40213dc/67314d708d6b310062c07480_Slingshot.gif",
       link: "/slingshot",
     },
     {
       id: 3,
-      name: "Ignite",
-      subtitle: "Fire Up Your Business",
+      name: "Pressure is on",
+      subtitle: "Your Roadmap is Set",
       image:
         "https://cdn.prod.website-files.com/671614fdaa6a0812f40213dc/67314d70b4c68c8bc6ece274_Ignite.gif",
       link: "/ignite",
     },
     {
       id: 4,
-      name: "AndAction!",
-      subtitle: "Keep Building Your Brand",
+      name: "Your Devs",
+      subtitle: "Are Overloaded",
       image:
         "https://cdn.prod.website-files.com/671614fdaa6a0812f40213dc/67314d70a1a931a7d3dc24ec_Action.gif",
       link: "/and-action",
@@ -128,7 +128,7 @@ const BrandProgramsSection = () => {
                 lineHeight: "1.2",
               }}
             >
-              Our brand-building programs
+              Meet the Dev Unit
             </h2>
             <h2
               className="fw-bold text-black"
@@ -137,8 +137,8 @@ const BrandProgramsSection = () => {
                 lineHeight: "1.3",
               }}
             >
-              We've poured our 15 years of expertise into ways of working fit
-              for every opportunity.
+               A pod of frontend and backend experts that plugs into your sprint and your stack.
+
             </h2>
           </div>
 
@@ -151,7 +151,7 @@ const BrandProgramsSection = () => {
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div className="row align-items-end d-none d-md-flex">
-                  <div className="col-md-3 col-lg-3">
+                  <div className="col-md-4 col-lg-4">
                     <h3
                       className="fw-bold text-danger"
                       style={{
@@ -168,7 +168,7 @@ const BrandProgramsSection = () => {
                     </h3>
                   </div>
 
-                  <div className="col-md-6 col-lg-6 text-center text-md-end mw-100 h-auto">
+                  <div className="col-md-5 col-lg-5 text-center text-md-end mw-100 h-auto">
                     <img
                       src={program.image}
                       alt={program.name}

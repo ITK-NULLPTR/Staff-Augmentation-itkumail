@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -23,17 +24,31 @@ const OrbitScrollSection = () => {
 
     if (!section || !pin || !content) return;
 
-    const radius = window.innerWidth < 768 ? 230 : 370;
-    const offsetDesk_X = window.innerWidth < 768 ? 0 : 75;
-    const offsetMobile_X = window.innerWidth > 768 ? 0 : 50;
+    const isMobile = window.innerWidth < 768;
+    
+    const desktopRadius = 420;
+    const desktopImageSize = -20;
+    const desktopPadding = 70;
+    const desktopScrollEnd = "bottom+=250% top";
+
+    const mobileRadius = 200;
+    const mobileImageSize = 100;
+    const mobilePadding = 20;
+    const mobileScrollEnd = "bottom+=250% top";
+
+    const finalRadius = isMobile ? mobileRadius : desktopRadius;
+    const finalImageSize = isMobile ? mobileImageSize : desktopImageSize;
+    const finalPadding = isMobile ? mobilePadding : desktopPadding;
+    const finalScrollEnd = isMobile ? mobileScrollEnd : desktopScrollEnd;
+    const finalPinHeight = finalRadius * 2 + finalImageSize + finalPadding;
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "bottom+=200% top",
+        end: finalScrollEnd,
         scrub: 0.5,
-        pin: true,
+        pin: pin,
         anticipatePin: 1,
         invalidateOnRefresh: true,
       },
@@ -64,11 +79,8 @@ const OrbitScrollSection = () => {
       if (!img) return;
 
       const angle = index * 45;
-      const finalX =
-        Math.cos(((angle - 90) * Math.PI) / 180) * radius +
-        offsetDesk_X +
-        offsetMobile_X;
-      const finalY = Math.sin(((angle - 90) * Math.PI) / 180) * radius;
+      const finalX = Math.cos(((angle - 90) * Math.PI) / 180) * finalRadius;
+      const finalY = Math.sin(((angle - 90) * Math.PI) / 180) * finalRadius;
 
       tl.to(
         img,
@@ -127,38 +139,14 @@ const OrbitScrollSection = () => {
   }, []);
 
   const imageData = [
-    {
-      src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=800&fit=crop",
-      alt: "Mountain landscape",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=800&fit=crop",
-      alt: "Nature scene",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=800&h=800&fit=crop",
-      alt: "Architecture",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1764269716681-043e7aad61bd?w=800&h=800&fit=crop",
-      alt: "Wedding photographer",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=800&h=800&fit=crop",
-      alt: "City lights",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1579027989536-b7b1f875659b?w=800&h=800&fit=crop",
-      alt: "Sushi",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&h=800&fit=crop",
-      alt: "Villa with pool",
-    },
-    {
-      src: "https://images.unsplash.com/photo-1542401886-65d6c61db217?w=800&h=800&fit=crop",
-      alt: "Beach scene",
-    },
+    { src: "/images/orbit/01.jpg", alt: "Mountain" },
+    { src: "/images/orbit/02.jpg", alt: "Nature" },
+    { src: "/images/orbit/03.png", alt: "Architecture" },
+    { src: "/images/orbit/04.jpg", alt: "Wedding" },
+    { src: "/images/orbit/05.jpg", alt: "City" },
+    { src: "/images/orbit/06.jpg", alt: "Sushi" },
+    { src: "/images/orbit/07.jpg", alt: "Villa" },
+    { src: "/images/orbit/08.jpg", alt: "Beach" },
   ];
 
   return (
@@ -168,7 +156,6 @@ const OrbitScrollSection = () => {
         style={{
           position: "relative",
           width: "100%",
-          height: "100%",
           background: "black",
           overflow: "hidden",
         }}
@@ -178,10 +165,13 @@ const OrbitScrollSection = () => {
           style={{
             position: "relative",
             width: "100%",
-            height:  "100vh",
+            minHeight: typeof window !== "undefined" && window.innerWidth < 768 
+              ? `${200 * 2 + 100 + 20}px` 
+              : `${370 * 2 + 150 + 50}px`,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            paddingBottom: typeof window !== "undefined" && window.innerWidth < 768 ? "20px" : "50px",
           }}
         >
           <div
@@ -199,27 +189,26 @@ const OrbitScrollSection = () => {
             }}
           >
             <h2
-              className="mb-1 md:mb-4 lg:mb-6"
               style={{
                 fontSize: "clamp(0.8rem, 5vw, 2.25rem)",
                 fontWeight: 700,
                 color: "white",
                 lineHeight: 1.25,
+                marginBottom: "1.5rem",
               }}
             >
-              AI is not just disrupting <br /> how people search
+              Your required talent is closer <br />than you think.
             </h2>
             <p
-              className="mb-4 md:mb-6 lg:mb-8"
               style={{
                 fontSize: "clamp(0.6rem, 3vw, 1.25rem)",
                 color: "#d1d5db",
                 lineHeight: 1.625,
                 padding: "0px 24px",
+                marginBottom: "2rem",
               }}
             >
-              It is deciding what they see and what they do not. If your brand
-              is not part of the answer, it is not part of the conversation.
+              Bridge the gap and engage the Unseen Hand.
             </p>
 
             <div
@@ -231,21 +220,28 @@ const OrbitScrollSection = () => {
                 alignItems: "center",
               }}
             >
-              <button
-                style={{
-                  padding: "0.75rem 1.75rem",
-                  background: "linear-gradient(to right, #9333ea, #db2777)",
-                  color: "white",
-                  borderRadius: "9999px",
-                  fontWeight: 600,
-                  fontSize: "1rem",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "all 0.3s",
-                }}
+              <a
+                href="https://itkumail.com/contact-us/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ textDecoration: "none" }}
               >
-                Contact us
-              </button>
+                <button
+                  style={{
+                    padding: "0.75rem 1.75rem",
+                    background: "linear-gradient(to right, #9333ea, #db2777)",
+                    color: "white",
+                    borderRadius: "9999px",
+                    fontWeight: 600,
+                    fontSize: "1rem",
+                    border: "none",
+                    cursor: "pointer",
+                    transition: "all 0.3s",
+                  }}
+                >
+                  Contact us
+                </button>
+              </a>
             </div>
           </div>
 
@@ -253,21 +249,15 @@ const OrbitScrollSection = () => {
             style={{
               position: "absolute",
               width: "100%",
-              height: "1250px",
+              height: "100%",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              overflow: "hidden",
             }}
           >
             <div
               style={{
                 position: "relative",
-                width: "600px",
-                height: "1250px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
               }}
             >
               {imageData.map((image, index) => (
@@ -285,8 +275,9 @@ const OrbitScrollSection = () => {
                   }}
                 >
                   <div
-                    className="w-50 h-50 md:w-75 md:h-75 lg:w-100 lg:h-100 "
                     style={{
+                      width: typeof window !== "undefined" && window.innerWidth < 768 ? "100px" : "200px",
+                      height: typeof window !== "undefined" && window.innerWidth < 768 ? "100px" : "200px",
                       borderRadius: "1rem",
                       overflow: "hidden",
                       boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
@@ -304,6 +295,7 @@ const OrbitScrollSection = () => {
                         width: "100%",
                         height: "100%",
                         objectFit: "cover",
+                        marginBottom: "11px",
                       }}
                     />
                   </div>
