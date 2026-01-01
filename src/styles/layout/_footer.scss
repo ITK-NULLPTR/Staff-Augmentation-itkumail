@@ -131,7 +131,7 @@
 }
 .footer__single-content {
       display: flex;
-    padding: 20px 0px ;
+    padding: 10px 0px ;
         flex-direction: column;
 
     gap: 20px;
@@ -144,4 +144,7 @@
   .footer__single {
     padding: 0px 0;
   }
+}
+.input-email{
+  border-radius: 20px;
 }
