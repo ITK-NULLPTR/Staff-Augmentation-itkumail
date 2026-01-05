@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import gsap from "gsap";
@@ -20,9 +21,9 @@ const BrandProgramsSection = () => {
     ScrollTrigger.create({
       trigger: section,
       start: "top 90%",
-      end: "bottom 46%",
+      end: "bottom 36%",
       onEnter: () => {
-        gsap.to(document.body, { backgroundColor: "#ffffff", duration: 0.9 });
+        gsap.to(document.body, { backgroundColor: "#ffffff", duration: 0.8 });
       },
       onEnterBack: () => {
         gsap.to(document.body, { backgroundColor: "#ffffff", duration: 0.9 });
@@ -76,32 +77,32 @@ const BrandProgramsSection = () => {
   const programs = [
     {
       id: 1,
-      name: "We don’t ",
-      subtitle: "Send Contractors",
+      name: "Shakeup",
+      subtitle: "Change your Market",
       image:
         "https://cdn.prod.website-files.com/671614fdaa6a0812f40213dc/67314d70b4c68c8bc6ece278_Shakeup-bottle-black.gif",
       link: "/shakeup",
     },
     {
       id: 2,
-      name: "We Extend ",
-      subtitle: "Your Team",
+      name: "Slingshot",
+      subtitle: "Launch Your Innovation",
       image:
         "https://cdn.prod.website-files.com/671614fdaa6a0812f40213dc/67314d708d6b310062c07480_Slingshot.gif",
       link: "/slingshot",
     },
     {
       id: 3,
-      name: "Pressure is on",
-      subtitle: "Your Roadmap is Set",
+      name: "Ignite",
+      subtitle: "Fire Up Your Business",
       image:
         "https://cdn.prod.website-files.com/671614fdaa6a0812f40213dc/67314d70b4c68c8bc6ece274_Ignite.gif",
       link: "/ignite",
     },
     {
       id: 4,
-      name: "Your Devs",
-      subtitle: "Are Overloaded",
+      name: "AndAction!",
+      subtitle: "Keep Building Your Brand",
       image:
         "https://cdn.prod.website-files.com/671614fdaa6a0812f40213dc/67314d70a1a931a7d3dc24ec_Action.gif",
       link: "/and-action",
@@ -114,8 +115,8 @@ const BrandProgramsSection = () => {
         ref={sectionRef}
         className="brand-programs-section-wrapper"
         style={{
-          paddingTop: "3rem",
-          paddingBottom: "3rem",
+          paddingTop: "15rem",
+          paddingBottom: "15rem",
           transition: "background-color 1s ease",
         }}
       >
@@ -128,7 +129,7 @@ const BrandProgramsSection = () => {
                 lineHeight: "1.2",
               }}
             >
-              Meet the Dev Unit
+              Our brand-building programs
             </h2>
             <h2
               className="fw-bold text-black"
@@ -137,8 +138,8 @@ const BrandProgramsSection = () => {
                 lineHeight: "1.3",
               }}
             >
-               A pod of frontend and backend experts that plugs into your sprint and your stack.
-
+              We have poured our 15 years of expertise into ways of working fit
+              for every opportunity.
             </h2>
           </div>
 
@@ -151,7 +152,7 @@ const BrandProgramsSection = () => {
                 onMouseLeave={() => setHoveredIndex(null)}
               >
                 <div className="row align-items-end d-none d-md-flex">
-                  <div className="col-md-4 col-lg-4">
+                  <div className="col-md-3 col-lg-3">
                     <h3
                       className="fw-bold text-danger"
                       style={{
@@ -168,7 +169,7 @@ const BrandProgramsSection = () => {
                     </h3>
                   </div>
 
-                  <div className="col-md-5 col-lg-5 text-center text-md-end mw-100 h-auto">
+                  <div className="col-md-6 col-lg-6 text-center text-md-end mw-100 h-auto">
                     <img
                       src={program.image}
                       alt={program.name}
@@ -186,6 +187,7 @@ const BrandProgramsSection = () => {
                       style={{
                         fontSize: "clamp(0.9rem, 1.5vw, 1.1rem)",
                         cursor: "pointer",
+                        border: "none",
                       }}
                     >
                       → {program.name}
@@ -230,8 +232,8 @@ const BrandProgramsSection = () => {
                       fontSize: "clamp(2.6875rem, 5vw, 3.5rem)",
                       opacity: visibleSubtitles.includes(program.id) ? 1 : 0,
                       transform: visibleSubtitles.includes(program.id)
-                        ? "translateY(0)"
-                        : "translateY(50px)",
+                        ? "translateX(0)"
+                        : "translateX(50px)",
                       transition: "all 1s ease",
                       lineHeight: "1.2",
                     

@@ -1,6 +1,5 @@
 "use client";
-
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -9,6 +8,11 @@ if (typeof window !== "undefined") {
 }
 
 const OrbitScrollSection = () => {
+  const [screenSize, setScreenSize] = useState({
+    width: 0,
+    isMobile: false,
+  });
+
   const sectionRef = useRef<HTMLElement | null>(null);
   const pinRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
@@ -16,6 +20,20 @@ const OrbitScrollSection = () => {
   const imageElementsRef = useRef<(HTMLImageElement | null)[]>([]);
 
   useEffect(() => {
+    setScreenSize({
+      width: window.innerWidth,
+      isMobile: window.innerWidth < 768,
+    });
+
+    const handleResize = () => {
+      setScreenSize({
+        width: window.innerWidth,
+        isMobile: window.innerWidth < 768,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
     const section = sectionRef.current;
     const pin = pinRef.current;
     const content = contentRef.current;
@@ -24,31 +42,17 @@ const OrbitScrollSection = () => {
 
     if (!section || !pin || !content) return;
 
-    const isMobile = window.innerWidth < 768;
-    
-    const desktopRadius = 420;
-    const desktopImageSize = -20;
-    const desktopPadding = 70;
-    const desktopScrollEnd = "bottom+=250% top";
-
-    const mobileRadius = 200;
-    const mobileImageSize = 100;
-    const mobilePadding = 20;
-    const mobileScrollEnd = "bottom+=250% top";
-
-    const finalRadius = isMobile ? mobileRadius : desktopRadius;
-    const finalImageSize = isMobile ? mobileImageSize : desktopImageSize;
-    const finalPadding = isMobile ? mobilePadding : desktopPadding;
-    const finalScrollEnd = isMobile ? mobileScrollEnd : desktopScrollEnd;
-    const finalPinHeight = finalRadius * 2 + finalImageSize + finalPadding;
+    const radius = window.innerWidth < 768 ? 200 : 370;
+    const offsetDesk_X = window.innerWidth < 768 ? 0 : 0;
+    const offsetMobile_X = window.innerWidth > 768 ? 0 : 0;
 
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: finalScrollEnd,
+        end: "bottom+=200% top",
         scrub: 0.5,
-        pin: pin,
+        pin: true,
         anticipatePin: 1,
         invalidateOnRefresh: true,
       },
@@ -70,7 +74,6 @@ const OrbitScrollSection = () => {
         rotationX: 0,
         scale: 0.8,
         opacity: 0.3,
-        transformPerspective: 1000,
         transformOrigin: "center center",
       });
     });
@@ -79,8 +82,11 @@ const OrbitScrollSection = () => {
       if (!img) return;
 
       const angle = index * 45;
-      const finalX = Math.cos(((angle - 90) * Math.PI) / 180) * finalRadius;
-      const finalY = Math.sin(((angle - 90) * Math.PI) / 180) * finalRadius;
+      const finalX =
+        Math.cos(((angle - 90) * Math.PI) / 180) * radius +
+        offsetDesk_X +
+        offsetMobile_X;
+      const finalY = Math.sin(((angle - 90) * Math.PI) / 180) * radius;
 
       tl.to(
         img,
@@ -96,7 +102,6 @@ const OrbitScrollSection = () => {
         },
         0
       );
-
       tl.to(
         img,
         {
@@ -106,7 +111,6 @@ const OrbitScrollSection = () => {
         },
         0.5
       );
-
       if (imageElements[index]) {
         gsap.to(imageElements[index], {
           x: () => gsap.utils.random(-5, 5),
@@ -134,6 +138,7 @@ const OrbitScrollSection = () => {
     );
 
     return () => {
+      window.removeEventListener("resize", handleResize);
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
@@ -149,6 +154,12 @@ const OrbitScrollSection = () => {
     { src: "/images/orbit/08.jpg", alt: "Beach" },
   ];
 
+  const getImageSize = () => {
+    if (screenSize.width >= 992) return "140px";
+    if (screenSize.width >= 768) return "75px";
+    return "75px";
+  };
+
   return (
     <>
       <section
@@ -156,6 +167,7 @@ const OrbitScrollSection = () => {
         style={{
           position: "relative",
           width: "100%",
+          height: "100%",
           background: "black",
           overflow: "hidden",
         }}
@@ -165,13 +177,11 @@ const OrbitScrollSection = () => {
           style={{
             position: "relative",
             width: "100%",
-            minHeight: typeof window !== "undefined" && window.innerWidth < 768 
-              ? `${200 * 2 + 100 + 20}px` 
-              : `${370 * 2 + 150 + 50}px`,
+            height: screenSize.isMobile ? "100vh" : "120vh", 
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            paddingBottom: typeof window !== "undefined" && window.innerWidth < 768 ? "20px" : "50px",
+            marginBottom: "clamp(1.8rem, 5vw, 6.25rem)",
           }}
         >
           <div
@@ -189,23 +199,24 @@ const OrbitScrollSection = () => {
             }}
           >
             <h2
+              className="mb-1 md:mb-4 lg:mb-6"
               style={{
                 fontSize: "clamp(0.8rem, 5vw, 2.25rem)",
                 fontWeight: 700,
                 color: "white",
                 lineHeight: 1.25,
-                marginBottom: "1.5rem",
               }}
             >
-              Your required talent is closer <br />than you think.
+              Your required talent is closer <br />
+              than you think.
             </h2>
             <p
+              className="mb-4 md:mb-6 lg:mb-8"
               style={{
                 fontSize: "clamp(0.6rem, 3vw, 1.25rem)",
                 color: "#d1d5db",
                 lineHeight: 1.625,
                 padding: "0px 24px",
-                marginBottom: "2rem",
               }}
             >
               Bridge the gap and engage the Unseen Hand.
@@ -220,28 +231,34 @@ const OrbitScrollSection = () => {
                 alignItems: "center",
               }}
             >
-              <a
-                href="https://itkumail.com/contact-us/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ textDecoration: "none" }}
+              <button
+                style={{
+                  padding: "0.75rem 1.75rem",
+                  background: "linear-gradient(to right, #9333ea, #db2777)",
+                  color: "white",
+                  borderRadius: "9999px",
+                  fontWeight: 600,
+                  fontSize: "1rem",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "all 0.3s",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "scale(1.05)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "scale(1)";
+                }}
               >
-                <button
-                  style={{
-                    padding: "0.75rem 1.75rem",
-                    background: "linear-gradient(to right, #9333ea, #db2777)",
-                    color: "white",
-                    borderRadius: "9999px",
-                    fontWeight: 600,
-                    fontSize: "1rem",
-                    border: "none",
-                    cursor: "pointer",
-                    transition: "all 0.3s",
-                  }}
+                <a
+                  href="https://itkumail.com/contact-us/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none", color: "inherit" }}
                 >
                   Contact us
-                </button>
-              </a>
+                </a>
+              </button>
             </div>
           </div>
 
@@ -249,15 +266,21 @@ const OrbitScrollSection = () => {
             style={{
               position: "absolute",
               width: "100%",
-              height: "100%",
+              height: "1250px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              overflow: "hidden",
             }}
           >
             <div
               style={{
                 position: "relative",
+                width: "500px",
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
               {imageData.map((image, index) => (
@@ -275,13 +298,11 @@ const OrbitScrollSection = () => {
                   }}
                 >
                   <div
+                    className="orbit-image rounded shadow-lg border border-light border-opacity-10"
                     style={{
-                      width: typeof window !== "undefined" && window.innerWidth < 768 ? "100px" : "200px",
-                      height: typeof window !== "undefined" && window.innerWidth < 768 ? "100px" : "200px",
-                      borderRadius: "1rem",
+                      width: getImageSize(), 
+                      height: getImageSize(),
                       overflow: "hidden",
-                      boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-                      border: "4px solid rgba(255, 255, 255, 0.1)",
                       transition: "all 0.3s",
                     }}
                   >
@@ -291,11 +312,11 @@ const OrbitScrollSection = () => {
                       }}
                       src={image.src}
                       alt={image.alt}
+                      className="img-fluid"
                       style={{
                         width: "100%",
                         height: "100%",
                         objectFit: "cover",
-                        marginBottom: "11px",
                       }}
                     />
                   </div>

@@ -82,7 +82,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="row pt-3 pb-5 ">
-          <div className="pt-5 col-12 col-lg-2 col-xl-3 ">
+          <div className="lg:pt-5 col-12 col-lg-2 col-xl-3  ">
             <iframe
               title="Rating"
               src="https://widget.clutch.co/widgets/get/13?ref_domain=yourwebsite.com&uid=2445786&rel_nofollow=true&scale=100"

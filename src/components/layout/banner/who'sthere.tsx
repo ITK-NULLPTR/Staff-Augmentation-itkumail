@@ -8,6 +8,14 @@ gsap.registerPlugin(ScrollTrigger);
 const Agency = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const circlesRef = useRef<HTMLDivElement[]>([]);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -37,14 +45,14 @@ const Agency = () => {
   }, []);
 
   const circleStyle: React.CSSProperties = {
-    width: "150px",
-    height: "150px",
+    width: isMobile ? "60px" : "150px",
+    height: isMobile ? "60px" : "150px",
     borderRadius: "50%",
     background: "#f9f4e8",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    fontSize: "5.7rem",
+    fontSize: isMobile ? "2.5rem" : "5.7rem",
     fontWeight: 600,
     color: "#1c1c1c",
     cursor: "pointer",
@@ -83,28 +91,29 @@ const Agency = () => {
         alignItems: "center",
         justifyContent: "center",
         textAlign: "center",
-        padding: "40px 20px",
+        paddingTop: "4.25rem",
       }}
     >
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          gap: "20px",
           alignItems: "center",
+
         }}
       >
         <div
           style={{
             display: "flex",
-            gap: "15px",
+            gap: "10px",
             justifyContent: "center",
-            alignItems: "center",
+            alignItems: "end",
+            marginBottom:"20px",
           }}
         >
           <div
             ref={(el) => {
-              if (el) circlesRef.current[0] = el;
+              el && (circlesRef.current[0] = el);
             }}
             style={circleStyle}
             onMouseMove={hoverFollow}
@@ -114,7 +123,7 @@ const Agency = () => {
           </div>
           <div
             ref={(el) => {
-              if (el) circlesRef.current[1] = el;
+              el && (circlesRef.current[1] = el);
             }}
             style={circleStyle}
             onMouseMove={hoverFollow}
@@ -127,7 +136,7 @@ const Agency = () => {
 
           <div
             ref={(el) => {
-              if (el) circlesRef.current[2] = el;
+              el && (circlesRef.current[2] = el);
             }}
             style={circleStyle}
             onMouseMove={hoverFollow}
@@ -137,7 +146,7 @@ const Agency = () => {
           </div>
           <div
             ref={(el) => {
-              if (el) circlesRef.current[3] = el;
+              el && (circlesRef.current[3] = el);
             }}
             style={circleStyle}
             onMouseMove={hoverFollow}
@@ -147,7 +156,7 @@ const Agency = () => {
           </div>
           <div
             ref={(el) => {
-              if (el) circlesRef.current[4] = el;
+              el && (circlesRef.current[4] = el);
             }}
             style={circleStyle}
             onMouseMove={hoverFollow}
@@ -157,7 +166,7 @@ const Agency = () => {
           </div>
         </div>
 
-        <div style={{ display: "flex", gap: "15px", justifyContent: "center" }}>
+        <div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
           {["H", "E", "R", "E"].map((letter, i) => (
             <div
               key={i + 5}
