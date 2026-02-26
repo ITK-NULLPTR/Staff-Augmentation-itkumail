@@ -22,7 +22,7 @@ const HomeTextslider3 = () => {
         trigger: section,
         start: "top top",
         end: "+=200%",
-        scrub: true,
+        scrub: 1.5,
         pin: true,
       },
     });

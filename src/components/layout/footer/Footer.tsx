@@ -128,12 +128,7 @@ const Footer = () => {
                       UI / UX Design
                     </Link>
                   </li>
-                  <li>
-                    <Link href="https://itkumail.com/#">
-                      Social Media Managment
-                    </Link>
-                  </li>
-                </ul>
+                 </ul>
               </div>
             </div>
           </div>
@@ -199,17 +194,17 @@ const Footer = () => {
                   </form>
                   <div className="pt-3 col-12 col-lg-9">
                     <div className="social justify-content-center justify-content-lg-end">
-                      <Link href="https://www.facebook.com/" target="_blank">
+                      <Link href="https://www.facebook.com/itkumail?_rdr" target="_blank">
                         <i className="fa-brands fa-facebook-f"></i>
                       </Link>
-                      <Link href="https://www.twitter.com/" target="_blank">
-                        <i className="fa-brands fa-twitter"></i>
+                      <Link href="https://www.instagram.com/it.kumail?igsh=MXQzODNpNm5ibG9kYQ==" target="_blank">
+                        <i className="fa-brands fa-instagram"></i>
                       </Link>
-                      <Link href="https://www.pinterest.com/" target="_blank">
+                      <Link href="https://www.linkedin.com/company/itkumail/" target="_blank">
                         <i className="fa-brands fa-linkedin-in"></i>
                       </Link>
-                      <Link href="https://www.instagram.com/" target="_blank">
-                        <i className="fa-brands fa-instagram"></i>
+                      <Link href="https://api.whatsapp.com/send?phone=923081472233/" target="_blank">
+                        <i className="fa-brands fa-whatsapp"></i>
                       </Link>
                     </div>
                   </div>

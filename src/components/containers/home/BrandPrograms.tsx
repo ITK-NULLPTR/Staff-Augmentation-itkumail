@@ -183,7 +183,6 @@ const BrandProgramsSection = () => {
                   <div className="col-md-3 col-lg-3 text-end">
                     <button
                       className="btn btn-danger text-white px-3 px-lg-4 py-2 py-lg-3 fw-bold"
-                      onClick={() => (window.location.href = program.link)}
                       style={{
                         fontSize: "clamp(0.9rem, 1.5vw, 1.1rem)",
                         cursor: "pointer",
@@ -219,30 +218,30 @@ const BrandProgramsSection = () => {
                       {program.name}
                     </h3>
                   </div>
-                  
-                  
+
+
                 </div>
                 <h4
-                    ref={(el) => {
-                      if (el) subtitleRefs.current[program.id] = el;
-                    }}
-                    data-program-id={program.id}
-                    className="text-end text-md-start fw-bold mt-3 mt-md-4 text-black"
-                    style={{
-                      fontSize: "clamp(2.6875rem, 5vw, 3.5rem)",
-                      opacity: visibleSubtitles.includes(program.id) ? 1 : 0,
-                      transform: visibleSubtitles.includes(program.id)
-                        ? "translateX(0)"
-                        : "translateX(50px)",
-                      transition: "all 1s ease",
-                      lineHeight: "1.2",
-                    
-                    }}
-                  >
-                    {program.subtitle}
-                  </h4>
+                  ref={(el) => {
+                    if (el) subtitleRefs.current[program.id] = el;
+                  }}
+                  data-program-id={program.id}
+                  className="text-end text-md-start fw-bold mt-3 mt-md-4 text-black"
+                  style={{
+                    fontSize: "clamp(2.6875rem, 5vw, 3.5rem)",
+                    opacity: visibleSubtitles.includes(program.id) ? 1 : 0,
+                    transform: visibleSubtitles.includes(program.id)
+                      ? "translateX(0)"
+                      : "translateX(50px)",
+                    transition: "all 1s ease",
+                    lineHeight: "1.2",
+
+                  }}
+                >
+                  {program.subtitle}
+                </h4>
                 <div className="d-md-none  ">
-                <div className="text-start">
+                  <div className="text-start">
                     <button
                       className="btn btn-danger text-white px-1 lg:px-4 py-3 lg:py-3 fw-bold w-50"
                       onClick={() => (window.location.href = program.link)}
@@ -256,7 +255,7 @@ const BrandProgramsSection = () => {
                       → {program.name}
                     </button>
                   </div>
-                  </div>
+                </div>
               </div>
             ))}
           </div>

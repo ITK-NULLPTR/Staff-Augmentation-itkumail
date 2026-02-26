@@ -83,10 +83,7 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
                             <Link href="https://itkumail.com/our-news">
                              News
                             </Link>
-                          </li>
-                          <li>
-                            <Link href="https://itkumail.com/#">Testimonials</Link>
-                          </li>                                                   
+                          </li>                                        
                         </ul>
                       </li>
                        
@@ -119,11 +116,6 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
                             <Link href="https://itkumail.com/marketing-services/">Marketing Services</Link>
                           </li>
                           <li>
-                            <Link href="index-three-light">
-                             Social Media Managment
-                            </Link>
-                          </li>
-                          <li>
                             <Link href="https://itkumail.com/videography/">Videography</Link>
                           </li>
                          </ul>
@@ -136,21 +128,7 @@ const HeaderTwo = ({ openNav, handleNav, setOpenNav }: HeaderProps) => {
                         >
                           Engagement Models
                         </button>
-                        <ul className="navbar__sub-menu">
-                          <li>
-                            <Link href="our-services">Software Development Outsourcing</Link>
-                          </li>
-                          <li>
-                            <Link href="service-single">Dedicated Teams</Link>
-                          </li>
-                          <li>
-                            <Link href="service-single">IT Staff Augmentation</Link>
-                          </li>
-                          <li>
-                            <Link href="service-single">New Venture Partnership</Link>
-                          </li>
-                        </ul>
-                      </li>
+                        </li>
                       
                      
                    </ul>

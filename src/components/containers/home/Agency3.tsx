@@ -22,8 +22,8 @@ const Agency = () => {
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "+=400%",
-        scrub: true,
+        end: "+=200%",
+        scrub: 1.5,
         pin: true,
       },
     });
@@ -83,7 +83,7 @@ const Agency = () => {
                       display: "inline-block",
                     }}
                   >
-                Don’t Have To
+                    Don’t Have To
                   </span>
                 </h2>
               </div>
@@ -97,11 +97,11 @@ const Agency = () => {
               <div className="heading-block hover-heading">
                 <h2 className="title">
                   <strong>
-                  Ongoing quality checks to  {" "}
+                    Ongoing quality checks to  {" "}
                     <span style={{ color: "#6AC72A" }}>ensure high standards</span>
                   </strong>
                   <br />
-              You focus on results, not {" "}
+                  You focus on results, not {" "}
                   <span
                     style={{
                       color: "#b0b0c3",
@@ -110,7 +110,7 @@ const Agency = () => {
                       display: "inline-block",
                     }}
                   >
-                micromanagement..
+                    micromanagement..
                   </span>
                 </h2>
 

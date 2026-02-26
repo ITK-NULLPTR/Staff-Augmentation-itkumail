@@ -50,7 +50,7 @@ const OrbitScrollSection = () => {
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "bottom+=200% top",
+        end: "+=200%",
         scrub: 0.5,
         pin: true,
         anticipatePin: 1,
