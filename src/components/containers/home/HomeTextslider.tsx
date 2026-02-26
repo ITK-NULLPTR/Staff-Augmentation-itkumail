@@ -18,7 +18,7 @@ const HomeTextslider = () => {
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "+=150%",
+        end: "+=200%",
         scrub: 1.5,
         pin: true,
       },

@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="container">
-              <div className="row pt-5 pb-5">
+        <div className="row pt-5 pb-5">
           <div className="col-12 col-lg-5 col-xl-3 ">
             <div className="footer__single-logo">
               <Link href="/" className="logo">
@@ -81,7 +81,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="row pt-3 pb-5 ">
+        <div className="row pt-3 pb-3">
           <div className="lg:pt-5 col-12 col-lg-2 col-xl-3  ">
             <iframe
               title="Rating"
@@ -128,7 +128,7 @@ const Footer = () => {
                       UI / UX Design
                     </Link>
                   </li>
-                 </ul>
+                </ul>
               </div>
             </div>
           </div>
@@ -213,7 +213,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="row pt-3 pb-2">
+        <div className="row pt-3">
           <div className="col-12">
             <div className="footer__copyright">
               <div className="row align-items-center gaper">

@@ -16,23 +16,23 @@ const BrandProgramsSection = () => {
     const section = sectionRef.current;
     if (!section) return;
 
-    gsap.set(document.body, { backgroundColor: "#000000" });
+    gsap.set(document.body, { backgroundColor: "#0e0e0e" });
 
     ScrollTrigger.create({
       trigger: section,
-      start: "top 90%",
-      end: "bottom 36%",
+      start: "top 70%",
+      end: "bottom bottom",
       onEnter: () => {
         gsap.to(document.body, { backgroundColor: "#ffffff", duration: 0.8 });
       },
       onEnterBack: () => {
-        gsap.to(document.body, { backgroundColor: "#ffffff", duration: 0.9 });
+        gsap.to(document.body, { backgroundColor: "#ffffff", duration: 0.8 });
       },
       onLeave: () => {
-        gsap.to(document.body, { backgroundColor: "#000000", duration: 0.6 });
+        gsap.to(document.body, { backgroundColor: "#0e0e0e", duration: 0.8 });
       },
       onLeaveBack: () => {
-        gsap.to(document.body, { backgroundColor: "#000000", duration: 0.9 });
+        gsap.to(document.body, { backgroundColor: "#0e0e0e", duration: 0.8 });
       },
     });
 
@@ -115,8 +115,8 @@ const BrandProgramsSection = () => {
         ref={sectionRef}
         className="brand-programs-section-wrapper"
         style={{
-          paddingTop: "15rem",
-          paddingBottom: "15rem",
+          paddingTop: "10rem",
+          paddingBottom: "10rem",
           transition: "background-color 1s ease",
         }}
       >

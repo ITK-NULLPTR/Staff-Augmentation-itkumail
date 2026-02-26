@@ -155,9 +155,9 @@ const OrbitScrollSection = () => {
   ];
 
   const getImageSize = () => {
-    if (screenSize.width >= 992) return "140px";
-    if (screenSize.width >= 768) return "75px";
-    return "75px";
+    if (screenSize.width >= 992) return "180px";
+    if (screenSize.width >= 768) return "90px";
+    return "90px";
   };
 
   return (
