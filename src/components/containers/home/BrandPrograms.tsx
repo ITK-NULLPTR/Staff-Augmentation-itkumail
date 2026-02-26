@@ -21,7 +21,7 @@ const BrandProgramsSection = () => {
     ScrollTrigger.create({
       trigger: section,
       start: "top 70%",
-      end: "bottom bottom",
+      end: "bottom 36%",
       onEnter: () => {
         gsap.to(document.body, { backgroundColor: "#ffffff", duration: 0.8 });
       },
