@@ -19,7 +19,7 @@ const HomeTextslider = () => {
         trigger: section,
         start: "top top",
         end: "+=200%",
-        scrub: true,
+        scrub: 1.5,
         pin: true,
       },
     });
@@ -42,7 +42,7 @@ const HomeTextslider = () => {
         <h2 className="title">EVERY</h2>
       </div>
 
-   
+
 
       <style jsx>{`
         .agency-section {

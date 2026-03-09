@@ -28,7 +28,7 @@ const AgencySlider = () => {
           trigger: section,
           start: "top top",
           end: "+=200%",
-          scrub: true,
+          scrub: 1.5,
           pin: true,
           onEnter: () => {
             gsap.to("body", { backgroundColor: "#fff", duration: 1 });

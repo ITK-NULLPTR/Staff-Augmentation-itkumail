@@ -50,7 +50,7 @@ const OrbitScrollSection = () => {
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "bottom+=200% top",
+        end: "+=200%",
         scrub: 0.5,
         pin: true,
         anticipatePin: 1,
@@ -155,9 +155,9 @@ const OrbitScrollSection = () => {
   ];
 
   const getImageSize = () => {
-    if (screenSize.width >= 992) return "140px";
-    if (screenSize.width >= 768) return "75px";
-    return "75px";
+    if (screenSize.width >= 992) return "180px";
+    if (screenSize.width >= 768) return "90px";
+    return "90px";
   };
 
   return (

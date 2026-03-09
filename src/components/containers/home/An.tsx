@@ -18,24 +18,24 @@ const Agency = () => {
       scrollTrigger: {
         trigger: section,
         start: "top top",
-        end: "+=700%",
-        scrub: true,
+        end: "+=200%",
+        scrub: 1.5,
         pin: true,
       },
     });
     const positions = isMobile
       ? [
-          { x: -160, y: 150 },
-          { x: -80, y: 150 },
-          { x: 30, y: 150 },
-          { x: 150, y: 150 },
-        ]
+        { x: -160, y: 150 },
+        { x: -80, y: 150 },
+        { x: 30, y: 150 },
+        { x: 150, y: 150 },
+      ]
       : [
-          { x: -500, y: 200 },
-          { x: -300, y: 200 },
-          { x: 20, y: 200 },
-          { x: 400, y: 200 },
-        ];
+        { x: -500, y: 200 },
+        { x: -300, y: 200 },
+        { x: 20, y: 200 },
+        { x: 400, y: 200 },
+      ];
     wordsRef.current.forEach((word, i) => {
       tl.fromTo(
         word,

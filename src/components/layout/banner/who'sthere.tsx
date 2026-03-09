@@ -32,8 +32,8 @@ const Agency = () => {
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: "+=300%",
-          scrub: 1,
+          end: "+=200%",
+          scrub: 1.5,
           pin: true,
         },
       }
@@ -108,7 +108,7 @@ const Agency = () => {
             gap: "10px",
             justifyContent: "center",
             alignItems: "end",
-            marginBottom:"20px",
+            marginBottom: "20px",
           }}
         >
           <div

@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="container">
-              <div className="row pt-5 pb-5">
+        <div className="row pt-5 pb-5">
           <div className="col-12 col-lg-5 col-xl-3 ">
             <div className="footer__single-logo">
               <Link href="/" className="logo">
@@ -81,7 +81,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="row pt-3 pb-5 ">
+        <div className="row pt-3 pb-3">
           <div className="lg:pt-5 col-12 col-lg-2 col-xl-3  ">
             <iframe
               title="Rating"
@@ -126,11 +126,6 @@ const Footer = () => {
                   <li>
                     <Link href="https://itkumail.com/ui-ux-design/">
                       UI / UX Design
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="https://itkumail.com/#">
-                      Social Media Managment
                     </Link>
                   </li>
                 </ul>
@@ -199,17 +194,17 @@ const Footer = () => {
                   </form>
                   <div className="pt-3 col-12 col-lg-9">
                     <div className="social justify-content-center justify-content-lg-end">
-                      <Link href="https://www.facebook.com/" target="_blank">
+                      <Link href="https://www.facebook.com/itkumail?_rdr" target="_blank">
                         <i className="fa-brands fa-facebook-f"></i>
                       </Link>
-                      <Link href="https://www.twitter.com/" target="_blank">
-                        <i className="fa-brands fa-twitter"></i>
+                      <Link href="https://www.instagram.com/it.kumail?igsh=MXQzODNpNm5ibG9kYQ==" target="_blank">
+                        <i className="fa-brands fa-instagram"></i>
                       </Link>
-                      <Link href="https://www.pinterest.com/" target="_blank">
+                      <Link href="https://www.linkedin.com/company/itkumail/" target="_blank">
                         <i className="fa-brands fa-linkedin-in"></i>
                       </Link>
-                      <Link href="https://www.instagram.com/" target="_blank">
-                        <i className="fa-brands fa-instagram"></i>
+                      <Link href="https://api.whatsapp.com/send?phone=923081472233/" target="_blank">
+                        <i className="fa-brands fa-whatsapp"></i>
                       </Link>
                     </div>
                   </div>
@@ -218,7 +213,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="row pt-3 pb-2">
+        <div className="row pt-3">
           <div className="col-12">
             <div className="footer__copyright">
               <div className="row align-items-center gaper">

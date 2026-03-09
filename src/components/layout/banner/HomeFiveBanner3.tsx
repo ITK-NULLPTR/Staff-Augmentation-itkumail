@@ -181,19 +181,19 @@
 //             </div>
 //           </div>
 //         </div>
-       
+
 //          <div className="banner-five__single">
-         
+
 //         </div>
 //         <div className="banner-five__single">
-         
+
 //         </div>
 //           <div className="banner-five__single">
-       
+
 //         </div>
-             
+
 //          <div className="banner-five__single">
-       
+
 //         </div>
 //       </div>
 //     </div>
@@ -233,8 +233,8 @@ const Agency = () => {
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: "+=300%", // longer scroll for smoother, slower animation
-          scrub: 1, // smooth connection to scroll
+          end: "+=200%", // longer scroll for smoother, slower animation
+          scrub: 1.5, // smooth connection to scroll
           pin: true,
         },
       }
@@ -283,11 +283,11 @@ const Agency = () => {
               <div className="heading-block hover-heading">
                 <h2 className="title">
                   <strong>
-                  Our developers adapt to your<br></br>  {" "}
+                    Our developers adapt to your<br></br>  {" "}
                     <span style={{ color: "#6AC72A" }}>Development</span>
                   </strong>
                   <br />
-            No process changes. No {" "}
+                  No process changes. No {" "}
                   <span
                     style={{
                       color: "#B0B0C3",
@@ -296,16 +296,16 @@ const Agency = () => {
                       display: "inline-block",
                     }}
                   >
-                  tech conflicts.…
+                    tech conflicts.…
                   </span>
                 </h2>
-             
+
               </div>
             </div>
           </div>
         </div>
       </div>
-   
+
     </section>
   );
 };

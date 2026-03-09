@@ -27,7 +27,7 @@ const Agency = () => {
           trigger: section,
           start: "top 80%",
           end: "top 20%",
-          scrub: true,
+          scrub: 1.5,
         },
       });
       tl.fromTo(
@@ -120,7 +120,7 @@ const Agency = () => {
           trigger: container,
           start: "top top",
           end: "bottom bottom",
-          scrub: true,
+          scrub: 1.5,
         },
       });
     }
@@ -164,7 +164,7 @@ const Agency = () => {
             trigger: container,
             start: "top top",
             end: "bottom bottom",
-            scrub: true,
+            scrub: 1.5,
           },
         }
       );
