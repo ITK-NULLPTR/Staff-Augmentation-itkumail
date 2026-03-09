@@ -131,7 +131,7 @@ const BrandProgramsSection = () => {
             >
               Our brand-building programs
             </h2>
-            <h2
+            <h1
               className="fw-bold text-black"
               style={{
                 fontSize: "clamp(1.75rem, 5vw, 4rem)",
@@ -140,7 +140,7 @@ const BrandProgramsSection = () => {
             >
               We have poured our 15 years of expertise into ways of working fit
               for every opportunity.
-            </h2>
+            </h1>
           </div>
 
           <div className="row g-3 g-md-4 g-lg-5">

@@ -174,7 +174,7 @@ const Layout = ({
         <meta name="keywords" content="creative, agency, portfolio" />
         <meta
           name="description"
-          content="Digital Agency Creative Portfolio Template"
+          content="IT KUMAIL helps you shake up your market, launch innovations, and build a thriving brand with expert staff solutions designed for every opportunity."
         />
       </Head>
       <div className={combinedClassName}>
