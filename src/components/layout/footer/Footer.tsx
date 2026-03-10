@@ -157,7 +157,7 @@ const Footer = () => {
                     <Link href="https://itkumail.com/our-news">News</Link>
                   </li>
                   <li>
-                    <Link href="hello@itkumail.com">
+                    <Link href="mailto:hello@itkumail.com">
                       <i className="fa-sharp fa-solid fa-envelope"></i>
                       hello@itkumail.com
                     </Link>
