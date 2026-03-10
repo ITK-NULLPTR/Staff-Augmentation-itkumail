@@ -26,7 +26,9 @@ const nextConfig = {
       { source: '/index-five', destination: 'https://itkumail.com/our-news/', permanent: true },
       { source: '/index-two-light', destination: 'https://itkumail.com/our-news/', permanent: true },
       { source: '/client-feedback', destination: 'https://itkumail.com/our-news/', permanent: true },
-      
+      { source: '/400', destination: 'https://itkumail.com/our-news/', permanent: true },
+      { source: '/our-projects', destination: 'https://itkumail.com/our-news/', permanent: true },
+
       // Catch-all: har remaining page bhi redirect hoga
       // { source: '/:path*', destination: 'https://itkumail.com/our-news/', permanent: true },
     ];
