@@ -7,8 +7,8 @@ const nextConfig = {
       { source: '/faq', destination: 'https://itkumail.com/our-news/', permanent: true },
       { source: '/portfolio', destination: 'https://itkumail.com/our-news/', permanent: true },
       { source: '/our-teams', destination: 'https://itkumail.com/our-news/', permanent: true },
-      { source: '/index-four', destination: 'https://itkumail.com/our-news/', permanent: true },
-      { source: '/index-three', destination: 'https://itkumail.com/our-news/', permanent: true },
+      // { source: '/index-four', destination: 'https://itkumail.com/our-news/', permanent: true },
+      // { source: '/index-three', destination: 'https://itkumail.com/our-news/', permanent: true },
       { source: '/project-single', destination: 'https://itkumail.com/our-news/', permanent: true },
       { source: '/service-single', destination: 'https://itkumail.com/our-news/', permanent: true },
       { source: '/our-services', destination: 'https://itkumail.com/our-news/', permanent: true },
@@ -27,7 +27,7 @@ const nextConfig = {
       // { source: '/index-two-light', destination: 'https://itkumail.com/our-news/', permanent: true },
       { source: '/client-feedback', destination: 'https://itkumail.com/our-news/', permanent: true },
       // Catch-all: har remaining page bhi redirect hoga
-      { source: '/:path*', destination: 'https://itkumail.com/our-news/', permanent: true },
+      // { source: '/:path*', destination: 'https://itkumail.com/our-news/', permanent: true },
     ];
   },
 }
