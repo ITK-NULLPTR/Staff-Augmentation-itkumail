@@ -157,10 +157,10 @@ const Footer = () => {
                     <Link href="https://itkumail.com/our-news">News</Link>
                   </li>
                   <li>
-                    <Link href="mailto:hello@itkumail.com">
+                    <a >
                       <i className="fa-sharp fa-solid fa-envelope"></i>
                       hello@itkumail.com
-                    </Link>
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -194,16 +194,28 @@ const Footer = () => {
                   </form>
                   <div className="pt-3 col-12 col-lg-9">
                     <div className="social justify-content-center justify-content-lg-end">
-                      <Link href="https://www.facebook.com/itkumail?_rdr" target="_blank">
+                      <Link
+                        href="https://www.facebook.com/itkumail?_rdr"
+                        target="_blank"
+                      >
                         <i className="fa-brands fa-facebook-f"></i>
                       </Link>
-                      <Link href="https://www.instagram.com/it.kumail?igsh=MXQzODNpNm5ibG9kYQ==" target="_blank">
+                      <Link
+                        href="https://www.instagram.com/it.kumail?igsh=MXQzODNpNm5ibG9kYQ=="
+                        target="_blank"
+                      >
                         <i className="fa-brands fa-instagram"></i>
                       </Link>
-                      <Link href="https://www.linkedin.com/company/itkumail/" target="_blank">
+                      <Link
+                        href="https://www.linkedin.com/company/itkumail/"
+                        target="_blank"
+                      >
                         <i className="fa-brands fa-linkedin-in"></i>
                       </Link>
-                      <Link href="https://api.whatsapp.com/send?phone=923081472233/" target="_blank">
+                      <Link
+                        href="https://api.whatsapp.com/send?phone=923081472233/"
+                        target="_blank"
+                      >
                         <i className="fa-brands fa-whatsapp"></i>
                       </Link>
                     </div>
